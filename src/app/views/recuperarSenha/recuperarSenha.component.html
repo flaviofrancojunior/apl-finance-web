@@ -1,0 +1,40 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <h1>Recuperação de Senha</h1>
+                  <p class="text-muted">Informe seu e-mail cadastrado para recuperação da senha.</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input [ngClass]="{'is-invalid': submitted && f.email.errors }" autocomplete="email"
+                           class="form-control"
+                           formControlName="email"
+                           placeholder="Seu e-mail "
+                           type="text"
+                    >
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Necessário informar seu e-mail!</div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <button class="btn btn-primary px-4">Enviar</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
