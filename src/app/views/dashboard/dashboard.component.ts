@@ -372,6 +372,7 @@ export class DashboardComponent implements OnInit {
   ];
   public brandBoxChartLegend = false;
   public brandBoxChartType = 'line';
+  public isCollapsed: any;
 
   public random(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min);
