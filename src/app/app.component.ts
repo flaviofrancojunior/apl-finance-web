@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
 import {AutenticacaoService} from './services/autenticacao.service';
-import {UsuarioModel} from './models/UsuarioModel';
+import {UsuarioModel} from './models/usuario.model';
+
 
 @Component({
   // tslint:disable-next-line

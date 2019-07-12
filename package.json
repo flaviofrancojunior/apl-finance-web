@@ -1,29 +1,23 @@
 {
-  "name": "@coreui/coreui-free-angular-admin-template",
-  "version": "2.5.2",
-  "description": "CoreUI Free Angular 2+ Admin Template",
+  "name": "apl-finance-web",
+  "version": "0.0.1",
+  "description": "Finance WEB - Logplex",
   "author": {
-    "name": "Łukasz Holeczek",
-    "url": "http://holeczek.pl",
-    "github": "https://github.com/mrholek",
-    "twitter": "https://twitter.com/lukaszholeczek"
+    "name": "Flavio Franco Jr.",
+    "url": "https://www.logplex.com.br",
+    "github": "https://github.com/flaviofrancojunior"
   },
-  "contributors": [
-    {
-      "name": "Andrzej Kopański",
-      "url": "https://github.com/xidedix"
-    }
-  ],
-  "homepage": "https://coreui.io/angular",
-  "copyright": "Copyright 2019 creativeLabs Łukasz Holeczek",
-  "license": "MIT",
+  "homepage": "https://www.logplex.com.br",
+  "copyright": "Copyright 2019 - Logplex Software Ltda.",
+  "license": "Commercial",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --aot --buildOptimizer --commonChunk --vendorChunk --optimization --progress",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "frejat": "ng serve --node-path '/node6/bin'"
   },
   "private": true,
   "dependencies": {

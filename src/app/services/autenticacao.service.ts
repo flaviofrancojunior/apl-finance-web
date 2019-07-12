@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {UsuarioModel} from '../models/UsuarioModel';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {UsuarioModel} from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'

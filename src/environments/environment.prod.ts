@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:4200'
+  apiUrl: 'https://api-finance-hml.azurewebsites.net/apl-finance-back/api/v1'
 };

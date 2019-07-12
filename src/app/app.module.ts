@@ -31,12 +31,14 @@ import {ChartsModule} from 'ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecuperarSenhaComponent} from './views/recuperarSenha/recuperarSenha.component';
-import {RegistroComponent} from './views/registro/registro.component';
+import {RegistroComponent} from './components/cadastro/registro/registro.component';
 import {AngularValidateBrLibModule} from 'angular-validate-br';
 import {NgxMaskModule} from 'ngx-mask';
 import {BasicAuthInterceptor} from './Interceptors/basic-auth.interceptor';
 import {ErrorInterceptor} from './Interceptors/error.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {RegistroModule} from './components/cadastro/registro.module';
+import {GeralModule} from './components/geral/geral.module';
 
 
 @NgModule({
@@ -57,16 +59,17 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
     NgbModule,
     ReactiveFormsModule,
     AngularValidateBrLibModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    GeralModule,
+    RegistroModule
+
 
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     LoginComponent,
-    RegistroComponent,
     RecuperarSenhaComponent
-
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

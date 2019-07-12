@@ -5,7 +5,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {DefaultLayoutComponent} from './containers';
 import {LoginComponent} from './views/login/login.component';
 import {RecuperarSenhaComponent} from './views/recuperarSenha/recuperarSenha.component';
-import {RegistroComponent} from './views/registro/registro.component';
+import {RegistroComponent} from './components/cadastro/registro/registro.component';
 import {AuthGuard} from './guards/auth-guard.service';
 
 export const routes: Routes = [
