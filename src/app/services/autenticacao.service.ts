@@ -10,6 +10,7 @@ import {UsuarioModel} from '../models/usuario.model';
 })
 export class AutenticacaoService {
 
+  private autenticado: boolean;
   private currentUserSubject: BehaviorSubject<UsuarioModel>;
   public currentUser: Observable<UsuarioModel>;
 
@@ -22,25 +23,43 @@ export class AutenticacaoService {
     return this.currentUserSubject.value;
   }
 
-  login(email: string, senha: string) {
+  /**
+   * Executa autenticação de usuário
+   * @param email
+   * @param senha
+   */
+  public login(email: string, senha: string) {
     return this.http.post<any>(`${environment.apiUrl}/autenticacao/autenticar`, {email, senha})
-    .pipe(map(user => {
-      // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-      user.authdata = window.btoa(email + ':' + senha);
-      localStorage.setItem('usuarioAtual', JSON.stringify(user));
-      this.currentUserSubject.next(user);
-      return user;
-    }));
+      .pipe(map(user => {
+        user.authdata = window.btoa(email + ':' + senha);
+        localStorage.setItem('usuarioAtual', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
   }
 
+  /**
+   * Efetua lougout da conta do usuário
+   */
   logout() {
-    // remove user from local storage to log user out
+    this.autenticado = false;
     localStorage.removeItem('usuarioAtual');
     this.currentUserSubject.next(null);
   }
 
+
+  /**
+   * Define usuário como autenticado
+   */
+  public setAutenticado() {
+    this.autenticado = true;
+  }
+
+  /***
+   * Verifica se usuário está autenticado
+   */
   public isAuthenticated() {
-    return false;
+    return this.autenticado;
   }
 
 

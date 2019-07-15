@@ -16,7 +16,8 @@ export class BasicAuthInterceptor implements HttpInterceptor {
     if (currentUser && currentUser.token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Basic ${currentUser.token}`
+          Authorization: `Basic ${currentUser.token}`,
+          UsuarioId: '0001-flavio'
         }
       });
     }

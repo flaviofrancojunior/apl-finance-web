@@ -1,0 +1,20 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <app-formulario-login (enviar)="login($event)" [recuperarRedirect]="'/recuperar'"></app-formulario-login>
+              </div>
+            </div>
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+              <app-card-novo-registro [redirect]="'/registro'"></app-card-novo-registro>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

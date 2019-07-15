@@ -6,7 +6,6 @@ import {AppComponent} from './app.component';
 
 // Import containers
 import {DefaultLayoutComponent} from './containers';
-import {LoginComponent} from './views/login/login.component';
 
 
 const APP_CONTAINERS = [
@@ -30,15 +29,12 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
 import {ChartsModule} from 'ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RecuperarSenhaComponent} from './views/recuperarSenha/recuperarSenha.component';
-import {RegistroComponent} from './components/cadastro/registro/registro.component';
 import {AngularValidateBrLibModule} from 'angular-validate-br';
 import {NgxMaskModule} from 'ngx-mask';
 import {BasicAuthInterceptor} from './Interceptors/basic-auth.interceptor';
 import {ErrorInterceptor} from './Interceptors/error.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {RegistroModule} from './components/cadastro/registro.module';
-import {GeralModule} from './components/geral/geral.module';
+import {AcessoModule} from './views/acesso/acesso.module';
 
 
 @NgModule({
@@ -60,16 +56,12 @@ import {GeralModule} from './components/geral/geral.module';
     ReactiveFormsModule,
     AngularValidateBrLibModule,
     NgxMaskModule.forRoot(),
-    GeralModule,
-    RegistroModule
-
+    AcessoModule
 
   ],
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
-    LoginComponent,
-    RecuperarSenhaComponent
+    ...APP_CONTAINERS
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

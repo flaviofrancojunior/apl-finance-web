@@ -3,9 +3,9 @@ import {Routes, RouterModule} from '@angular/router';
 
 // Import Containers
 import {DefaultLayoutComponent} from './containers';
-import {LoginComponent} from './views/login/login.component';
-import {RecuperarSenhaComponent} from './views/recuperarSenha/recuperarSenha.component';
-import {RegistroComponent} from './components/cadastro/registro/registro.component';
+import {LoginComponent} from './views/acesso/login/login.component';
+import {RecuperarSenhaComponent} from './views/acesso/recuperarSenha/recuperarSenha.component';
+import {RegistroComponent} from './views/acesso/registro/registro.component';
 import {AuthGuard} from './guards/auth-guard.service';
 
 export const routes: Routes = [

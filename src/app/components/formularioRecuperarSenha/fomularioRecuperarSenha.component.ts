@@ -1,14 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'recuperarSenha.component.html'
+  templateUrl: 'fomularioRecuperarSenha.component.html'
 })
 
-export class RecuperarSenhaComponent implements OnInit {
+export class FomularioRecuperarSenhaComponent implements OnInit {
+
+  @Output() enviar = new EventEmitter();
+  @Input() loginRedirect: string;
   form: FormGroup;
   submitted = false;
+
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -32,13 +36,11 @@ export class RecuperarSenhaComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-
     if (this.form.invalid) {
       return;
     }
 
-    // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.form.value, null, 4));
+    this.enviar.emit(this.form.value);
   }
 
 
