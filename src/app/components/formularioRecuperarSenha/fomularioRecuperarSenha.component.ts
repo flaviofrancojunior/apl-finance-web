@@ -1,15 +1,14 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-formulario-recuperar-senha',
   templateUrl: 'fomularioRecuperarSenha.component.html'
 })
 
 export class FomularioRecuperarSenhaComponent implements OnInit {
 
   @Output() enviar = new EventEmitter();
-  @Input() loginRedirect: string;
   form: FormGroup;
   submitted = false;
 
