@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {first} from 'rxjs/operators';
-import {UsuarioModel} from '../../../models/usuario.model';
-import {AutenticacaoService} from '../../../services/autenticacao.service';
+import {LoginViewModel} from '../../../viewModels/acesso/login.view.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,37 +8,13 @@ import {AutenticacaoService} from '../../../services/autenticacao.service';
 
 export class LoginComponent implements OnInit {
 
-  private error: string = '';
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AutenticacaoService) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+  constructor(private viewModel: LoginViewModel) {
   }
 
   ngOnInit() {
-
   }
 
 
-  /**
-   * envio do formulário
-   */
-  private login(dados: UsuarioModel) {
-    this.authenticationService.login(dados.email, dados.senha)
-      .pipe(first())
-      .subscribe(
-        () => {
-          this.authenticationService.setAutenticado();
-          this.router.navigate(['/dashboard']);
-        },
-        error => {
-          this.error = error;
-        });
-  }
 }
 
 

@@ -6,7 +6,8 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <app-formulario-login (enviar)="login($event)" [recuperarRedirect]="'/recuperar'"></app-formulario-login>
+                <app-formulario-login (enviar)="viewModel.processarAutenticacao($event)" [recuperarRedirect]="'/recuperar'"></app-formulario-login>
+                <app-box-erro *ngIf="viewModel.getMostarErro()" [erroMensagem]="viewModel.getErroProcessamento().mensagem" [erroTitulo]="viewModel.getErroProcessamento().titulo" [erroCodigo]="viewModel.getErroProcessamento().codigo" (fechaBox)="viewModel.setMostrarErro($event)"></app-box-erro>
               </div>
             </div>
             <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">

@@ -39,6 +39,21 @@ export class AutenticacaoService {
   }
 
   /**
+   * Executa recuperação de senha do usuário
+   * @param email
+   */
+  public recuperarSenha(email: string) {
+    return this.http.post<any>(`${environment.apiUrl}/autenticacao/autenticar`, {email})
+      .pipe(map(user => {
+        user.authdata = window.btoa(email);
+        localStorage.setItem('usuarioAtual', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
+
+
+  /**
    * Efetua lougout da conta do usuário
    */
   logout() {

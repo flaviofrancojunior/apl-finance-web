@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 // Import Containers
-import {DefaultLayoutComponent} from './containers';
+import {DefaultLayoutComponent} from './tools/containers';
 import {LoginComponent} from './views/acesso/login/login.component';
 import {RecuperarSenhaComponent} from './views/acesso/recuperarSenha/recuperarSenha.component';
 import {RegistroComponent} from './views/acesso/registro/registro.component';
-import {AuthGuard} from './guards/auth-guard.service';
+import {AuthGuard} from './tools/guards/auth-guard.service';
 
 export const routes: Routes = [
   {

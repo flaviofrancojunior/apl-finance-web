@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 
 // Import containers
-import {DefaultLayoutComponent} from './containers';
+import {DefaultLayoutComponent} from './tools/containers';
 
 
 const APP_CONTAINERS = [
@@ -31,8 +31,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularValidateBrLibModule} from 'angular-validate-br';
 import {NgxMaskModule} from 'ngx-mask';
-import {BasicAuthInterceptor} from './Interceptors/basic-auth.interceptor';
-import {ErrorInterceptor} from './Interceptors/error.interceptor';
+import {BasicAuthInterceptor} from './tools/Interceptors/basic-auth.interceptor';
+import {ErrorInterceptor} from './tools/Interceptors/error.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AcessoModule} from './views/acesso/acesso.module';
 

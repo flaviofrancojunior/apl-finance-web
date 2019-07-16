@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AutenticacaoService} from '../../../services/autenticacao.service';
+import {RecuperarSenhaViewModel} from '../../../viewModels/acesso/recuperarSenha.view.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,18 +9,11 @@ import {AutenticacaoService} from '../../../services/autenticacao.service';
 export class RecuperarSenhaComponent implements OnInit {
 
 
-  constructor(private autenticacaoService: AutenticacaoService) {
+  constructor(private viewModel: RecuperarSenhaViewModel) {
   }
 
   ngOnInit() {
 
-  }
-
-  /**
-   * envio do formulário
-   */
-  private recuperarSenha(email: string) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(email, null, 4));
   }
 
 

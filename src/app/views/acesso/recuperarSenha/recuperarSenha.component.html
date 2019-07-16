@@ -6,7 +6,8 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <app-formulario-recuperar-senha (enviar)="recuperarSenha($event)"></app-formulario-recuperar-senha>
+                <app-formulario-recuperar-senha (enviar)="viewModel.processarSolicitacao($event)"></app-formulario-recuperar-senha>
+                <app-box-erro *ngIf="viewModel.getMostarErro()" [erroMensagem]="viewModel.getErroProcessamento().mensagem" [erroTitulo]="viewModel.getErroProcessamento().titulo" [erroCodigo]="viewModel.getErroProcessamento().codigo" (fechaBox)="viewModel.setMostrarErro($event)"></app-box-erro>
               </div>
             </div>
           </div>

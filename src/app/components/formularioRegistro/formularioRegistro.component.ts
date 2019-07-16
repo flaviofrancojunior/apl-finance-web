@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SenhaForteValidator} from '../../validators/senhaForte.validator';
-import {CamposIguaisHelper} from '../../helpers/camposIguais.helper';
+import {SenhaForteValidator} from '../../tools/validators/senhaForte.validator';
+import {CamposIguaisHelper} from '../../tools/helpers/camposIguais.helper';
 
 
 @Component({
