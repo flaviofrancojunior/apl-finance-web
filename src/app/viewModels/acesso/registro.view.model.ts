@@ -4,6 +4,7 @@ import {first} from 'rxjs/operators';
 import {BaseViewModel} from '../base.view.model';
 import {RegistroModel} from '../../models/registro.model';
 import {CadastroService} from '../../services/cadastro.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 
 @Injectable({
@@ -12,23 +13,27 @@ import {CadastroService} from '../../services/cadastro.service';
 export class RegistroViewModel extends BaseViewModel {
 
 
-  constructor(router: Router,
+  constructor(spinner: NgxSpinnerService,
+              router: Router,
               private cadastroService: CadastroService) {
-    super(router);
+    super(router, spinner);
   }
 
 
   /**
    * Envia dados de registro para cadastro.
    */
-  public enviarRegistro(registro: RegistroModel) {
+  public enviarRegistro(registro: RegistroModel, spinnerNome: string) {
+    this.showSpinner(spinnerNome);
     this.cadastroService.enviarNovoRegistro(registro)
       .pipe(first())
       .subscribe(
         () => {
+          this.hideSpinner(spinnerNome);
           this.irPara('/');
         },
         error => {
+          this.hideSpinner(spinnerNome);
           this.error = error;
           this.mostrarErro = true;
         });

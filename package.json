@@ -47,6 +47,7 @@
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "^5.0.0",
     "ngx-mask": "^8.0.1",
+    "ngx-spinner": "^8.0.3",
     "rxjs": "^6.5.2",
     "simple-line-icons": "^2.4.1",
     "ts-helpers": "^1.1.2",

@@ -11,6 +11,7 @@ import {FormularioLoginComponent} from '../../components/formularioLogin/formula
 import {CadastroService} from '../../services/cadastro.service';
 import {CardNovoRegistroComponent} from '../../components/cardNovoRegistro/cardNovoRegistro.component';
 import {FomularioRecuperarSenhaComponent} from '../../components/formularioRecuperarSenha/fomularioRecuperarSenha.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {FomularioRecuperarSenhaComponent} from '../../components/formularioRecup
   exports: [],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [
     AutenticacaoService,

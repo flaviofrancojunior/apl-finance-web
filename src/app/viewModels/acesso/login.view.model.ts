@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AutenticacaoService} from '../../services/autenticacao.service';
 import {first} from 'rxjs/operators';
 import {BaseViewModel} from '../base.view.model';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 
 @Injectable({
@@ -12,16 +13,18 @@ import {BaseViewModel} from '../base.view.model';
 export class LoginViewModel extends BaseViewModel {
 
 
-  constructor(private autenticacaoService: AutenticacaoService,
-              router: Router) {
-    super(router);
+  constructor(spinner: NgxSpinnerService,
+              router: Router,
+              private autenticacaoService: AutenticacaoService) {
+    super(router, spinner);
   }
 
 
   /**
    * Executa tentativa de autenticação do usuário informado.
    */
-  public processarAutenticacao(dados: UsuarioModel) {
+  public processarAutenticacao(dados: UsuarioModel, spinnerNome: string) {
+    this.showSpinner(spinnerNome);
     this.mostrarErro = false;
     this.autenticacaoService.login(dados.email, dados.senha)
       .pipe(first())
@@ -33,6 +36,7 @@ export class LoginViewModel extends BaseViewModel {
         error => {
           this.error = error;
           this.mostrarErro = true;
+          this.hideSpinner(spinnerNome);
         });
   }
 
