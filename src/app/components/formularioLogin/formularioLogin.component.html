@@ -9,9 +9,8 @@
            autocomplete="email"
            class="form-control"
            formControlName="email"
-           placeholder="Seu e-mail "
-           type="text"
-    >
+           placeholder="Seu e-mail"
+           type="text">
     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
       <div *ngIf="f.email.errors.required">Necessário informar seu e-mail!</div>
       <div *ngIf="f.email.errors.email">E-mail inválido!</div>
@@ -29,7 +28,6 @@
            autocomplete="current-password">
     <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
       <div *ngIf="f.senha.errors.required">Necessário informar sua senha!</div>
-      <div *ngIf="f.senha.errors.minLength">Senha deve ter no mínimo 08 digitos!</div>
     </div>
   </div>
   <div class="row">
