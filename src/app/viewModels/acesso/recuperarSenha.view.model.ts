@@ -27,9 +27,7 @@ export class RecuperarSenhaViewModel extends BaseViewModel {
     this.mostrarErro = false;
     this.autenticacaoService.recuperarSenha(email)
       .pipe(first())
-      .subscribe(
-        () => {
-          this.autenticacaoService.setAutenticado();
+      .subscribe(() => {
           this.hideSpinner(spinnerNome);
           this.irPara('/login');
         },

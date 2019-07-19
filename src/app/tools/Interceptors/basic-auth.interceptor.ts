@@ -12,7 +12,7 @@ export class BasicAuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     // interceptando request e adicionado cabeçalho de segurança
-    const currentUser = this.authenticationService.currentUserValue;
+    const currentUser = this.authenticationService.getUsuarioLogado();
     if (currentUser && currentUser.token) {
       request = request.clone({
         setHeaders: {

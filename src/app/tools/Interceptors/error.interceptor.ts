@@ -15,10 +15,6 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(catchError(err => {
 
-      console.log('a', err.error);
-      console.log('b', err.statusText);
-      console.log('c', err.status);
-
       const erroRertono: ErroModel = new ErroModel();
 
       if (err.status === 404 || err.status <= 0) {

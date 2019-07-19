@@ -28,9 +28,8 @@ export class LoginViewModel extends BaseViewModel {
     this.mostrarErro = false;
     this.autenticacaoService.login(dados.email, dados.senha)
       .pipe(first())
-      .subscribe(
-        () => {
-          this.autenticacaoService.setAutenticado();
+      .subscribe(result => {
+          this.autenticacaoService.setUsuarioAutenticado(result);
           this.irPara('/dashboard');
         },
         error => {

@@ -35,6 +35,8 @@ import {BasicAuthInterceptor} from './tools/Interceptors/basic-auth.interceptor'
 import {ErrorInterceptor} from './tools/Interceptors/error.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AcessoModule} from './views/acesso/acesso.module';
+import {ModalModule} from 'ngx-bootstrap';
+
 
 
 @NgModule({
@@ -56,6 +58,7 @@ import {AcessoModule} from './views/acesso/acesso.module';
     ReactiveFormsModule,
     AngularValidateBrLibModule,
     NgxMaskModule.forRoot(),
+    ModalModule.forRoot(),
     AcessoModule
 
   ],
@@ -65,7 +68,7 @@ import {AcessoModule} from './views/acesso/acesso.module';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
