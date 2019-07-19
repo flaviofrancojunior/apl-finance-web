@@ -20,8 +20,8 @@ export class BaseViewModel {
       type: 'pacman',
       fullScreen: false,
       size: 'default',
-      bdColor: 'rgb(0, 3, 51,.7)',
-      color: 'white'
+      bdColor: '#202443eb',
+      color: '#c1ac6c'
     };
   }
 

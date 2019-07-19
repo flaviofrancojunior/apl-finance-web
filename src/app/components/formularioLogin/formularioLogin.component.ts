@@ -22,7 +22,7 @@ export class FormularioLoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(8)]]
+      senha: ['', [Validators.required]]
     });
   }
 

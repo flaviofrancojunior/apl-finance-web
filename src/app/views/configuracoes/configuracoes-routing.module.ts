@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {ConfiguracoesComponent} from './configuracoes.component';
 import {ConfiguracoesDadosComponent} from './configuracoes-dados.component';
 
-
 const routes: Routes = [
   {
     path: '',
