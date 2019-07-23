@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap';
 import {ErroModel} from '../../models/erro.model';
-import {ModalErroComponent} from '../../components/modalAlert/modalErro.component';
+import {ModalErroComponent} from '../../components/modalErro/modalErro.component';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class ModalHelper {
    */
   public mostrarErroRequest(erro: ErroModel) {
     this.config.initialState = erro;
-    this.config.class = 'modal-erro';
+    this.config.class = 'modal-lg modal-erro';
     this.bsModalRef = this.modalService.show(ModalErroComponent, this.config);
   }
 }

@@ -56,8 +56,8 @@ export class AutenticacaoService {
   /***
    * Obtem dados inciais da aplicação
    */
-  public obterAplicacao() {
-    return this.http.get<any>(`${environment.apiUrl}/autenticacao/aplicacao`)
+  public obterAplicacao(): Observable<AplicacaoModel> {
+    return this.http.get<AplicacaoModel>(`${environment.apiUrl}/autenticacao/aplicacao`)
       .pipe(map(result => {
         return result;
       }));
@@ -85,8 +85,8 @@ export class AutenticacaoService {
    * @param email
    * @param senha
    */
-  public login(email: string, senha: string) {
-    return this.http.post<any>(`${environment.apiUrl}/autenticacao/autenticar`, {email, senha})
+  public login(email: string, senha: string): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(`${environment.apiUrl}/autenticacao/autenticar`, {email, senha})
       .pipe(map(result => {
         return result;
       }));

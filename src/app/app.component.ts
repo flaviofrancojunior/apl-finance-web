@@ -6,6 +6,7 @@ import {AplicacaoModel} from './models/Aplicacao.model';
 import {first} from 'rxjs/operators';
 import {ModalHelper} from './tools/helpers/modal.helper';
 import {ErroModel} from './models/erro.model';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -23,10 +24,12 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router,
               private modal: ModalHelper,
+              private titleService: Title,
               private autenticacaoService: AutenticacaoService) {
     localStorage.clear();
     this.autenticacaoService.usuarioLogado.subscribe(x => this.usuarioLogado = x);
     this.autenticacaoService.aplicacao.subscribe(x => this.aplicacao = x);
+
     this.getAplicacao();
   }
 
@@ -46,11 +49,11 @@ export class AppComponent implements OnInit {
   public getAplicacao() {
     this.autenticacaoService.obterAplicacao()
       .pipe(first())
-      .subscribe(result => {
+      .subscribe((result: AplicacaoModel) => {
           this.autenticacaoService.setAplicacao(result);
-
+          this.titleService.setTitle(result.nome);
         },
-        error => {
+        (error: ErroModel) => {
           this.modal.mostrarErroRequest(<ErroModel>error);
         })
     ;

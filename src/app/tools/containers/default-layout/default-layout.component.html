@@ -1,7 +1,7 @@
 <app-header
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/logo.png', width: 89, height: 25}"
+  [navbarBrandFull]="{src: 'data:image/png;base64,'+app.logo, width: 89, height: 25}"
   [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30}"
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
@@ -47,7 +47,7 @@
 
 <div class="app-body">
   <app-sidebar [fixed]="true" [display]="'lg'">
-    <app-sidebar-nav [navItems]="navItems"  ></app-sidebar-nav>
+    <app-sidebar-nav [navItems]="navItems"></app-sidebar-nav>
     <app-sidebar-minimizer></app-sidebar-minimizer>
   </app-sidebar>
   <!-- Main content -->
@@ -345,6 +345,6 @@
 
 
 <app-footer>
-  <span><a href="https://www.safra.com.br">Banco Safra SA</a> &copy; 2018 Todos os direitos reservados.</span>
-  <span class="ml-auto">TI RH</span>
+  <span><a href="https://www.safra.com.br">{{app.proprietario}}</a> &copy; 2018 Todos os direitos reservados.</span>
+  <span class="ml-auto">{{app.nome}}&nbsp; </span> | <span class="font-weight-bold text-info">&nbsp; {{app.versao}}.{{app.build}}-{{app.release}}</span>
 </app-footer>

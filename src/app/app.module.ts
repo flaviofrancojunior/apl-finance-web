@@ -36,7 +36,7 @@ import {ErrorInterceptor} from './tools/Interceptors/error.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AcessoModule} from './views/acesso/acesso.module';
 import {AlertModule, ModalModule} from 'ngx-bootstrap';
-import {ModalErroComponent} from './components/modalAlert/modalErro.component';
+import {ModalErroComponent} from './components/modalErro/modalErro.component';
 
 
 
