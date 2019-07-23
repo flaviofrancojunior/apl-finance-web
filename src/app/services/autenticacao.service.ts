@@ -57,7 +57,7 @@ export class AutenticacaoService {
    * Obtem dados inciais da aplicação
    */
   public obterAplicacao() {
-    return this.http.get<any>(`${environment.apiUrl}/aplicacao`)
+    return this.http.get<any>(`${environment.apiUrl}/autenticacao/aplicacao`)
       .pipe(map(result => {
         return result;
       }));

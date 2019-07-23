@@ -1,25 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
 import {AutenticacaoService} from './services/autenticacao.service';
 import {UsuarioModel} from './models/usuario.model';
 import {AplicacaoModel} from './models/Aplicacao.model';
 import {first} from 'rxjs/operators';
-import {BsModalRef, BsModalService, ModalDirective} from 'ngx-bootstrap';
+import {ModalHelper} from './tools/helpers/modal.helper';
+import {ErroModel} from './models/erro.model';
 
 
 @Component({
   // tslint:disable-next-line
   selector: 'body',
-  template: '<router-outlet></router-outlet>'
+  template: '<router-outlet></router-outlet>',
+  providers: [ModalHelper]
 })
 export class AppComponent implements OnInit {
 
-  private modalRef: BsModalRef;
+
   private usuarioLogado: UsuarioModel;
   private aplicacao: AplicacaoModel;
 
+
   constructor(private router: Router,
-              private modalService: BsModalService,
+              private modal: ModalHelper,
               private autenticacaoService: AutenticacaoService) {
     localStorage.clear();
     this.autenticacaoService.usuarioLogado.subscribe(x => this.usuarioLogado = x);
@@ -48,8 +51,9 @@ export class AppComponent implements OnInit {
 
         },
         error => {
-          this.modalRef = this.modalService.show("TESTE");
-        });
+          this.modal.mostrarErroRequest(<ErroModel>error);
+        })
+    ;
   }
 
 }

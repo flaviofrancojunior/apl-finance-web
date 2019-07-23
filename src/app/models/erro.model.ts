@@ -1,7 +1,10 @@
 export class ErroModel {
-  codigo: string;
-  mensagem: string;
-  titulo: string;
-  detalhe: string;
-
+  erroId: number;
+  erroDescricao: string;
+  mensagemTexto: string;
+  mensagemTitulo: string;
+  moduloId: number;
+  moduloNome: string;
+  transacaoId: string;
+  status: number;
 }

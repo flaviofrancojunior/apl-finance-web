@@ -15,16 +15,17 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(catchError(err => {
 
-      const erroRertono: ErroModel = new ErroModel();
+      let erroRertono: ErroModel = new ErroModel();
 
       if (err.status === 404 || err.status <= 0) {
-        erroRertono.codigo = '404';
-        erroRertono.mensagem = 'Endereço de requisição não encontrado.';
-        erroRertono.titulo = 'Oops! Problemas no caminho.';
+        erroRertono.status = 404;
+        erroRertono.mensagemTexto = 'Endereço de requisição não encontrado.';
+        erroRertono.mensagemTitulo = 'Oops! Problemas no caminho';
         return throwError(erroRertono);
       }
-      const error = err.error.message || err.statusText;
-      return throwError(error);
+      erroRertono = <ErroModel>err.error;
+      return throwError(erroRertono);
+
     }));
   }
 }
