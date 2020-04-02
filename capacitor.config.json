@@ -1,0 +1,8 @@
+{
+  "appId": "br.com.logplex.finance",
+  "appName": "apl-finance-web",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "dist",
+  "cordova": {}
+}

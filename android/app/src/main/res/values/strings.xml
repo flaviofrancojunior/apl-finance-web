@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">apl-finance-web</string>
+    <string name="title_activity_main">apl-finance-web</string>
+    <string name="package_name">br.com.logplex.finance</string>
+    <string name="custom_url_scheme">br.com.logplex.finance</string>
+</resources>
