@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{status}} - {{mensagemTitulo}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  {{mensagemTexto}}
+
+</div>
+<div class="modal-footer">
+
+  <div class="col-sm-11">
+    <span class="texto-codigo text-left">{{moduloId}}-{{transacaoId}}</span>
+  </div>
+  <div class="col-sm-1 text-right">
+    <button type="button" class="btn btn-outline-dark" (click)="bsModalRef.hide()">OK</button>
+  </div>
+
+
+</div>
