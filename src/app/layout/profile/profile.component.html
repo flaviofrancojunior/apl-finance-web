@@ -1,0 +1,334 @@
+<div [@routerTransition]>
+    <div class="container">
+            <div class="card bg-template shadow mt-4 h-200">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-auto">
+                            <figure class="avatar avatar-60"><img src="../assets/images/user1.png" alt=""></figure>
+                        </div>
+                        <div class="col pl-0 align-self-center">
+                            <h5 class="mb-1">Ammy Jahnson</h5>
+                            <p class="text-mute small">Work, London, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container top-100">
+            <div class="card mb-4 shadow">
+                <div class="card-body border-bottom">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mb-0 font-weight-normal">$ 1548.00</h3>
+                            <p class="text-mute">My Balance</p>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-default btn-rounded-54 shadow"><i class="material-icons">add</i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-none">
+                    <div class="row">
+                        <div class="col text-right">
+                            <p>$ 90 <i class="material-icons text-danger vm small">arrow_downward</i><br><small class="text-mute">Income</small></p>
+                        </div>
+                        <div class="col border-left-dotted">
+                            <p><i class="material-icons text-success vm small mr-1">arrow_upward</i>$ 105<br><small class="text-mute">Expense</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h6 class="subtitle">Recently Transfer Money</h6>
+            <div class="row">
+                <div class="container px-1">
+                    <!-- Swiper -->
+                    <div class="swiper-container two-slide" [swiper]="configurationstwo">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto pr-0">
+                                                <figure class="avatar avatar-50 border-0">
+                                                    <img src="../assets/images/user1.png" alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 150<br><small class="text-secondary">Magon</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto pr-0">
+                                                <figure class="avatar avatar-50 border-0">
+                                                    <img src="../assets/images/user2.png" alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 148<br><small class="text-secondary">Celeiena</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto pr-0">
+                                                <figure class="avatar avatar-50 border-0">
+                                                    <img src="../assets/images/user3.png" alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 150<br><small class="text-secondary">Jamshed</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto pr-0">
+                                                <figure class="avatar avatar-50 border-0">
+                                                    <img src="../assets/images/user4.png" alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 154<br><small class="text-secondary">Busis...</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h6 class="subtitle">Extra expenses</h6>
+            <div class="row ">
+                <div class="container px-0">
+                    <!-- Swiper -->
+                    <div class="swiper-container offer-slide" [swiper]="configurationsoffer" >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide pb-3">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row h-100">
+                                            <div class="col-auto pr-0">
+                                                <div class="avatar avatar-60 no-shadow border-0">
+                                                    <div class="overlay gradient-danger"></div>
+                                                    <i class="material-icons text-danger">favorite</i>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 150.00<br><small class="text-secondary">Medical Treatment</small></p>
+                                                <p class="text-secondary text-mute small">Due to long illness and food infection medical treatment undergone 3 days</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row h-100">
+                                            <div class="col-auto pr-0">
+                                                <div class="avatar avatar-60 no-shadow border-0">
+                                                    <div class="overlay gradient-success"></div>
+                                                    <i class="material-icons text-success">pets</i>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 100.00<br><small class="text-secondary">Pets Food</small></p>
+                                                <p class="text-secondary text-mute small">Due to long illness and food infection medical treatment undergone 3 days</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card shadow border-0">
+                                    <div class="card-body">
+                                        <div class="row h-100">
+                                            <div class="col-auto pr-0">
+                                                <div class="avatar avatar-60 no-shadow border-0">
+                                                    <div class="overlay gradient-warning"></div>
+                                                    <i class="material-icons text-warning">directions_car</i>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p>$ 150.00<br><small class="text-secondary">Transportation</small></p>
+                                                <p class="text-secondary text-mute small">Way ahead of the decided to go, more distance more money wasted these days</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h6 class="subtitle">Transaction History <a href="alltransactions.html" class="float-right small">View All</a></h6>
+            <div class="row">
+                <div class="col-12 px-0">
+                    <ul class="list-group list-group-flush border-top border-bottom">
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Ms. Shivani Dilux</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-success">$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user4.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Mrs. Magon Strudio</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-success">$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Mr. Jack Strudio</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-danger">-$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Ms. Shivani Dilux</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-danger">-$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user4.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Mrs. Magon Strudio</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-success">$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-itens-censter">
+                                <div class="col-auto pr-0">
+                                    <div class="avatar avatar-50 no-shadow border-0">
+                                        <img src="../assets/images/user3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center pr-0">
+                                    <h6 class="font-weight-normal mb-1">Mr. Jack Strudio</h6>
+                                    <p class="text-mute small text-secondary">15-1-2020, 8:00 am</p>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-success">$154.0</h6>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h6 class="subtitle">Friends</h6>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <figure class="avatar avatar-50 mr-1">
+                        <img src="../assets/images/user2.png" alt="">
+                    </figure>
+                    <figure class="avatar avatar-50 mr-1">
+                        <img src="../assets/images/user3.png" alt="">
+                    </figure>
+                    <figure class="avatar avatar-50 mr-1">
+                        <img src="../assets/images/user4.png" alt="">
+                    </figure>
+                    <figure class="avatar avatar-50 mr-1">
+                        <img src="../assets/images/user1.png" alt="">
+                    </figure>
+                    <div class="avatar avatar-50 mr-1">
+                        <a class="d-block" >
+                            <h5 class="text-template mb-0">46</h5>
+                            <p class="small d-block text-secondary">More</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="subtitle">Contact Information</h6>
+            <dl class="row mb-4">
+                <dt class="col-3 text-secondary font-weight-normal">Email</dt>
+                <dd class="col-9">ammyjohnson@maxartkiller.com</dd>
+                <dt class="col-3 text-secondary font-weight-normal">Phone</dt>
+                <dd class="col-9">55 5555 555555 55</dd>
+            </dl>
+
+            <h6 class="subtitle">Address</h6>
+            <p class="mb-4">58, Lajpat Nagar,<br>
+                Holand Street four,<br>
+                Sydney - 25468<br>
+                Australia
+            </p>
+
+            <a class="btn btn-lg btn-default btn-block btn-rounded shadow"><span>Edit Profile</span></a>
+            <br>
+        </div>
+</div>
