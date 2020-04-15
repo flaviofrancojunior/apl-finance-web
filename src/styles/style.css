@@ -4,7 +4,7 @@
 
 [ Table of content ]
 -------------------------------------
-1. Basic 
+1. Basic
 2. primary colors
 3. sidebar
 4. bread crumb
@@ -13,7 +13,7 @@
 7. form elements
 8. button
 9. input group
-10. h group 
+10. h group
 11. heights
 12. top
 13. bottom
@@ -532,7 +532,6 @@ body.sidemenu-open .closesidemenu {
 }
 
 
-
 /* form elements */
 .form-control {
     background: #ffffff;
@@ -677,7 +676,7 @@ select.form-control optgroup {
 
 /* button */
 .btn {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     font-weight: normal;
     border-width: 0;
@@ -1167,7 +1166,6 @@ h5 {
 }
 
 
-
 .nav-tabs .nav-link {
     padding: 15px 15px 25px 15px;
     border: 0;
@@ -1417,7 +1415,7 @@ h5 {
 }
 
 .form-signin {
-    max-width: 320px;
+    max-width: 420px;
     margin: 0 auto;
 }
 
@@ -1527,8 +1525,6 @@ h5 {
 }
 
 
-
-
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
     font-size: 18px;
@@ -1565,7 +1561,8 @@ h5 {
     height: 300px;
 }
 
-.product-details {}
+.product-details {
+}
 
 .product-details .swiper-slide {
     padding: 20px 15px 40px 15px;
@@ -1772,7 +1769,6 @@ pre {
 }
 
 
-
 /* theme color  */
 
 /* blue theme */
@@ -1926,8 +1922,6 @@ pre {
 }
 
 
-
-
 /* red theme */
 .red-theme .bg-background,
 .red-theme .header.active {
@@ -2077,9 +2071,6 @@ pre {
 .red-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
-
-
 
 
 /* green theme */
@@ -2233,7 +2224,6 @@ pre {
 }
 
 
-
 /* pink theme */
 .pink-theme .bg-background,
 .pink-theme .header.active {
@@ -2383,7 +2373,6 @@ pre {
 .pink-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
 
 
 /* yellow theme */
@@ -2537,7 +2526,6 @@ pre {
 }
 
 
-
 /* orange theme */
 .orange-theme .bg-background,
 .orange-theme .header.active {
@@ -2687,7 +2675,6 @@ pre {
 .orange-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
 
 
 /* purple theme */
@@ -2841,7 +2828,6 @@ pre {
 }
 
 
-
 /* deeppurple theme */
 .deeppurple-theme .bg-background,
 .deeppurple-theme .header.active {
@@ -2991,7 +2977,6 @@ pre {
 .deeppurple-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
 
 
 /* lightblue theme */
@@ -3145,7 +3130,6 @@ pre {
 }
 
 
-
 /* teal theme */
 .teal-theme .bg-background,
 .teal-theme .header.active {
@@ -3295,7 +3279,6 @@ pre {
 .teal-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
 
 
 /* lime theme */
@@ -3449,7 +3432,6 @@ pre {
 }
 
 
-
 /* deeporange theme */
 .deeporange-theme .bg-background,
 .deeporange-theme .header.active {
@@ -3599,7 +3581,6 @@ pre {
 .deeporange-theme .badge-info {
     background-color: #5ED0FB !important;
 }
-
 
 
 /* gray theme */
@@ -3753,7 +3734,6 @@ pre {
 }
 
 
-
 /* black theme */
 .black-theme .bg-background,
 .black-theme .header.active {
@@ -3905,10 +3885,6 @@ pre {
 }
 
 
-
-
-
-
 .gradient-warning {
     background: #ffe785;
     background: -moz-linear-gradient(top, #ffe785 0%, #ffbb00 100%);
@@ -4041,7 +4017,7 @@ pre {
 
 /* media query */
 
-@media screen and (max-width:374px) {
+@media screen and (max-width: 374px) {
     .footer .btn {
         width: 50px;
     }
@@ -4055,12 +4031,12 @@ pre {
     .sidebar .main-menu .list-group-item {
         margin-bottom: 10px;
     }
-    
-    .two-slide figure.avatar{
+
+    .two-slide figure.avatar {
         display: none
     }
-    
-    .introduction .swiper-slide img{
+
+    .introduction .swiper-slide img {
         max-width: 60% !important
     }
 }
@@ -4096,4 +4072,11 @@ pre {
 .theme-dark *::-webkit-scrollbar-track {
     border-radius: 5px;
     background: rgba(0, 0, 0, 1);
+}
+
+.icon-label-center {
+    line-height: 150%;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
 }
