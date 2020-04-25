@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {routerTransition} from '../../router.animations';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../shared/validators/custom-validators';
+import {RegistroService} from '../../shared/services/registro.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class SignupComponent implements OnInit {
     form: FormGroup;
     submitted: boolean;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder,
+                private registroService: RegistroService) {
     }
 
     ngOnInit() {
@@ -51,9 +53,18 @@ export class SignupComponent implements OnInit {
 
     submit() {
         this.submitted = true;
-        if (this.form.invalid) {
-            return;
+        // if (this.form.invalid) {
+        //     return;
+        // }
 
-        }
+        this.form.clearValidators();
+        this.registroService.getTeste()
+            .subscribe(result => {
+                    console.log('result', result);
+                },
+                error => {
+                    console.log('error', error);
+                });
+
     }
 }
