@@ -12,6 +12,7 @@ import {LocalStorageService} from './shared/services/storage.service';
 import {SharedModule} from './shared/shared.module';
 import {RequestInterceptor} from './shared/interceptors/request.interceptor';
 import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
+import {RegistroComponent} from './modules/registro/registro.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,10 @@ import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
         AppRoutingModule,
         SharedModule,
     ],
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        RegistroComponent
+    ],
     providers: [
         AuthGuard,
         LocalStorageService,

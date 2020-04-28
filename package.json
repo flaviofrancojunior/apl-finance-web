@@ -25,7 +25,7 @@
     "@capacitor/android": "^1.5.2",
     "@capacitor/cli": "^1.5.2",
     "@capacitor/core": "^1.5.2",
-    "@ng-bootstrap/ng-bootstrap": "4.2.1",
+    "@ng-bootstrap/ng-bootstrap": "~5.1.0",
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/http-client": "^4.2.0",
     "@ngx-loading-bar/router": "^4.2.0",

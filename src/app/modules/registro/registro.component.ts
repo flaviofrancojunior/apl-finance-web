@@ -3,20 +3,22 @@ import {routerTransition} from '../../router.animations';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../shared/validators/custom-validators';
 import {RegistroService} from '../../shared/services/registro.service';
+import {ModalHelper} from '../../shared/helpers/modal.helper';
 
 
 @Component({
-    selector: 'app-signup',
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss'],
+    selector: 'app-registro',
+    templateUrl: './registro.component.html',
+    styleUrls: ['./registro.component.scss'],
     animations: [routerTransition()]
 })
-export class SignupComponent implements OnInit {
+export class RegistroComponent implements OnInit {
 
     form: FormGroup;
     submitted: boolean;
 
     constructor(private formBuilder: FormBuilder,
+                private modal: ModalHelper,
                 private registroService: RegistroService) {
     }
 
@@ -64,6 +66,7 @@ export class SignupComponent implements OnInit {
                 },
                 error => {
                     console.log('error', error);
+                    this.modal.mostrarErroRequest(error);
                 });
 
     }

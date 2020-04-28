@@ -1,5 +1,5 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {NgbDatepickerModule, NgbModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule, NgbDatepickerModule, NgbModule, NgbPaginationModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {AngularValidateBrLibModule} from 'angular-validate-br';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -16,6 +16,11 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import localePt from '@angular/common/locales/pt';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 import {TranslateModule} from '@ngx-translate/core';
+import {ModalAlertComponent} from './components/modais/modalAlerta/modalAlerta.component';
+import {ModalConfirmacaoComponent} from './components/modais/modalConfirmacao/modalConfirmacao.component';
+import {ModalErroComponent} from './components/modais/modalErro/modalErro.component';
+import {BrowserModule} from '@angular/platform-browser';
+
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: 'right',
@@ -33,10 +38,13 @@ registerLocaleData(localePt);
         NgbModule,
         CommonModule,
         TranslateModule,
+        BrowserModule,
         TabsModule.forRoot(),
         AlertModule.forRoot(),
         ModalModule.forRoot(),
         BsDropdownModule.forRoot(),
+        NgbAlertModule,
+        NgbPaginationModule,
         NgbTooltipModule,
         AngularValidateBrLibModule,
         FormsModule,
@@ -49,10 +57,15 @@ registerLocaleData(localePt);
         LoadingBarModule,
         DeviceDetectorModule.forRoot()
     ],
-    declarations: [],
+    declarations: [
+        ModalAlertComponent,
+        ModalConfirmacaoComponent,
+        ModalErroComponent
+    ],
     exports: [
         NgbTooltipModule,
         AngularValidateBrLibModule,
+        BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         SelectDropDownModule,
@@ -60,7 +73,11 @@ registerLocaleData(localePt);
         NgbDatepickerModule,
 
     ],
-    entryComponents: [],
+    entryComponents: [
+        ModalAlertComponent,
+        ModalConfirmacaoComponent,
+        ModalErroComponent
+    ],
     providers: [
 
         {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},
