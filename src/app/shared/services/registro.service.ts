@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {UtilService} from './util.service';
+import {RegistroModel} from '../models/registro.model';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -12,17 +12,19 @@ import {map} from 'rxjs/operators';
 
 export class RegistroService {
 
-    constructor(private _httpClient: HttpClient,
-                private _utilService: UtilService) {
+
+    constructor(private _httpClient: HttpClient) {
+
     }
 
 
     // Obtem todos os carros
-    getTeste(): Observable<any> {
-        return this._httpClient.get<any>(environment.backendUrl + 'teste/status')
-            .pipe(map(result => {
-                return result;
-            }));
+    public salvar(registro: RegistroModel): Observable<RegistroModel> {
+        return this._httpClient.post<RegistroModel>(environment.backendUrl + 'registro/registrar', {
+            body: registro
+        }).pipe(map(result => {
+            return result;
+        }));
     }
 
 

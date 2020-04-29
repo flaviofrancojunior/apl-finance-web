@@ -1,7 +1,7 @@
 {
   "name": "apl-finance-web",
   "version": "0.0.1",
-  "license": "Commerci",
+  "license": "Commercial",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

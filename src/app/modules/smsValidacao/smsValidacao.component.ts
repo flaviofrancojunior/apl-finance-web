@@ -10,12 +10,12 @@ import {Router} from '@angular/router';
 
 
 @Component({
-    selector: 'app-registro',
-    templateUrl: './registro.component.html',
-    styleUrls: ['./registro.component.scss'],
+    selector: 'app-sms-validacao',
+    templateUrl: './smsValidacao.component.html',
+    styleUrls: ['./smsValidacao.component.scss'],
     animations: [routerTransition()]
 })
-export class RegistroComponent extends BaseComponet implements OnInit {
+export class SmsValidacaoComponent extends BaseComponet implements OnInit {
 
     form: FormGroup;
     submitted: boolean;
@@ -28,28 +28,9 @@ export class RegistroComponent extends BaseComponet implements OnInit {
     }
 
     ngOnInit() {
-        (document.querySelector('.loader-screen') as HTMLElement).style.display = 'none';
-
         this.form = this.formBuilder.group({
-            nome: [null, Validators.required],
-            aceite: [null, Validators.required],
-            email: [null, [Validators.required, Validators.email]],
-            senha: [null, Validators.compose([
-                Validators.required,
-                Validators.minLength(8),
-                CustomValidators.patternValidator(/\d/, {hasNumber: true}),
-                CustomValidators.patternValidator(/[A-Z]/, {hasCapitalCase: true}),
-                CustomValidators.patternValidator(/[a-z]/, {hasSmallCase: true})
-                // CustomValidators.patternValidator(/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
-                //     {
-                //         hasSpecialCharacters: true
-                //     })
-            ])],
-            confirmaSenha: [null, Validators.compose([Validators.required])]
-        }, {
-            validator: CustomValidators.passwordMatchValidator
+            sms: [null, Validators.required]
         });
-
         this.submitted = false;
     }
 
@@ -67,7 +48,7 @@ export class RegistroComponent extends BaseComponet implements OnInit {
         this.form.clearValidators();
         this.registroService.salvar(<RegistroModel>this.form.value)
             .subscribe(result => {
-                    this.irPara('/validacao-registro');
+
                 },
                 error => {
                     console.log('error', error);

@@ -1,0 +1,16 @@
+<div class="modal-content shadow bg-danger text-white">
+    <div class="modal-header text-white font-weight-bold">
+        <h5 class="modal-title pull-left">{{this.titulo}}</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        {{this.mensagem}}
+    </div>
+    <div class="modal-footer">
+        <div class="col-sm-1 text-right">
+            <button type="button" class="shadow mr-2 btn btn-dark rounded mb-2" (click)="bsModalRef.hide()">OK</button>
+        </div>
+    </div>
+</div>

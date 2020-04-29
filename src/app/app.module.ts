@@ -13,6 +13,7 @@ import {SharedModule} from './shared/shared.module';
 import {RequestInterceptor} from './shared/interceptors/request.interceptor';
 import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
 import {RegistroComponent} from './modules/registro/registro.component';
+import {SmsValidacaoComponent} from './modules/smsValidacao/smsValidacao.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import {RegistroComponent} from './modules/registro/registro.component';
     ],
     declarations: [
         AppComponent,
-        RegistroComponent
+        RegistroComponent,
+        SmsValidacaoComponent
     ],
     providers: [
         AuthGuard,

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
+import {ModalHelper} from '../helpers/modal.helper';
 
 
 @Injectable({
@@ -8,13 +9,6 @@ import {Observable, of} from 'rxjs';
 
 
 export class UtilService {
-
-
-    public handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-            console.error(error);
-            return of(result as T);
-        };
+    constructor(private modal: ModalHelper) {
     }
-
 }

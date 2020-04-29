@@ -1,0 +1,39 @@
+<div class="login-page" [@routerTransition]>
+    <div class="wrapper">
+        <!-- header -->
+        <div class="header">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <a routerLink="/registro" [routerLinkActive]="['active']" class="btn  btn-link text-dark"><i class="material-icons">chevron_left</i></a>
+                </div>
+                <div class="col text-center"></div>
+                <div class="col-auto">
+                </div>
+            </div>
+        </div>
+        <!-- header ends -->
+        <form [formGroup]="this.form" (submit)="this.submit()">
+            <div class="col-12 align-self-center px-3 text-center">
+                <div class="form-signin mt-4">
+                    <br>
+                    <img src="assets/images/logo-login.png" alt="logo" class="logo-small">
+                    <div class="form-group">
+                        <input type="text" id="sms" formControlName="sms" class="form-control form-control-lg text-center rm-control"
+                               placeholder="Código de Validação" autofocus [ngClass]="{ 'is-invalid': submitted && f.sms.errors,'is-valid': submitted && !f.sms.errors }">
+                        <div *ngIf="submitted && f.sms.errors" class="invalid-feedback">
+                            <div *ngIf="f.sms.errors.required">Necessário informar o código de validação!</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 d-block text-secondary">
+                        Você irá receber um código por SMS no número informado. Por favor informe o código recebido para ativar seu registro.
+                    </p>
+                    <div class="col">
+                        <button type="submit" class="btn btn-default btn-lg btn-rounded shadow btn-block">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>

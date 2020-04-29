@@ -4,6 +4,7 @@ import {ErroModel} from '../models/erro.model';
 import {ModalErroComponent} from '../components/modais/modalErro/modalErro.component';
 import {ModalAlertComponent} from '../components/modais/modalAlerta/modalAlerta.component';
 import {ModalConfirmacaoComponent} from '../components/modais/modalConfirmacao/modalConfirmacao.component';
+import {ModalFalhaComponent} from '../components/modais/modalFalha/modalFalha.component';
 
 
 @Injectable({
@@ -37,7 +38,7 @@ export class ModalHelper {
      */
     public mostrarAlerta(titulo: string, mensagem: string) {
         this.config.initialState = {'titulo': titulo, 'mensagem': mensagem};
-        this.config.class = 'modal-lg modal-warning';
+        this.config.class = 'modal-dialog modal-sm modal-dialog-centered  modal-warning';
         this.bsModalRef = this.modalService.show(ModalAlertComponent, this.config);
         return new Promise<boolean>((resolve, reject) => this.bsModalRef.content.result.subscribe((result) => resolve(result)));
     }
@@ -48,12 +49,24 @@ export class ModalHelper {
      */
     public modalConfirmacao(titulo: string, mensagem: string) {
         this.config.initialState = {'titulo': titulo, 'mensagem': mensagem};
-        this.config.class = 'modal-lg modal-warning';
+        this.config.class = 'modal-dialog modal-sm modal-dialog-centered modal-warning';
         this.config.ignoreBackdropClick = true;
         this.bsModalRef = this.modalService.show(ModalConfirmacaoComponent, this.config);
         return new Promise<boolean>((resolve, reject) => this.bsModalRef.content.result.subscribe((result) => resolve(result)));
     }
 
 
+    /**
+     * Exibe modal padrão de alerta
+     */
+    public modalFalha(titulo: string, mensagem: string) {
+        this.config.initialState = {'titulo': titulo, 'mensagem': mensagem};
+        this.config.class = 'modal-dialog modal-sm modal-dialog-centered';
+        this.bsModalRef = this.modalService.show(ModalFalhaComponent, this.config);
+        return new Promise<boolean>((resolve, reject) => this.bsModalRef.content.result.subscribe((result) => resolve(result)));
+    }
+
+
 }
+
 
