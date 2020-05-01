@@ -13,12 +13,12 @@ import {SessionStorageService} from '../../shared/services/sessionStorage.servic
 
 
 @Component({
-    selector: 'app-introduction',
-    templateUrl: './introduction.component.html',
-    styleUrls: ['./introduction.component.scss'],
+    selector: 'app-abertura',
+    templateUrl: './abertura.component.html',
+    styleUrls: ['./abertura.component.scss'],
     animations: [routerTransition()]
 })
-export class IntroductionComponent implements OnInit {
+export class AberturaComponent implements OnInit {
 
     public configurations: SwiperConfigInterface = {
         direction: 'horizontal',
@@ -38,10 +38,16 @@ export class IntroductionComponent implements OnInit {
     ngOnInit() {
         (document.querySelector('.loader-screen') as HTMLElement).style.display = 'none';
 
-        const usuario = this.localService.getData('usuario');
-        if (usuario) {
-            this.router.navigateByUrl('/login');
+        const sessao = this.sessionService.getData('sessionId');
+        if (sessao !== null) {
+            this.router.navigateByUrl('/dashboard');
+        } else {
+            const usuario = this.localService.getData('usuario');
+            if (usuario) {
+                this.router.navigateByUrl('/login');
+            }
         }
+
     }
 
 }

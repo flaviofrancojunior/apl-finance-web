@@ -5,6 +5,7 @@ import {RegistroComponent} from './modules/registro/registro.component';
 import {SmsValidacaoComponent} from './modules/registro/smsValidacao.component';
 import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component';
 import {LoginComponent} from './modules/login/login.component';
+import {AberturaComponent} from './modules/abertura/abertura.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
         redirectTo: '/',
         pathMatch: 'full',
     },
-    {path: '', loadChildren: () => import('./base/introduction/introduction.module').then(m => m.IntroductionModule)},
+    {path: '', component: AberturaComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'validacao-registro', component: SmsValidacaoComponent},

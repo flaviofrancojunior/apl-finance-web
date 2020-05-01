@@ -17,6 +17,11 @@ import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component
 import {LoginComponent} from './modules/login/login.component';
 import {LocalStorageService} from './shared/services/localStorage.service';
 import {SessionStorageService} from './shared/services/sessionStorage.service';
+import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
+import {AberturaComponent} from './modules/abertura/abertura.component';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+};
 
 @NgModule({
     imports: [
@@ -26,10 +31,12 @@ import {SessionStorageService} from './shared/services/sessionStorage.service';
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
+        SwiperModule,
         SharedModule,
     ],
     declarations: [
         AppComponent,
+        AberturaComponent,
         RegistroComponent,
         SmsValidacaoComponent,
         ReenvioCodigoComponent,
@@ -39,6 +46,7 @@ import {SessionStorageService} from './shared/services/sessionStorage.service';
         AuthGuard,
         LocalStorageService,
         SessionStorageService,
+        {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG},
         {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
         {provide: LOCALE_ID, useValue: 'pt-BR'},
