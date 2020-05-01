@@ -8,12 +8,15 @@ import {LanguageTranslationModule} from './shared/modules/language-translation/l
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './shared';
-import {LocalStorageService} from './shared/services/storage.service';
 import {SharedModule} from './shared/shared.module';
 import {RequestInterceptor} from './shared/interceptors/request.interceptor';
 import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
 import {RegistroComponent} from './modules/registro/registro.component';
-import {SmsValidacaoComponent} from './modules/smsValidacao/smsValidacao.component';
+import {SmsValidacaoComponent} from './modules/registro/smsValidacao.component';
+import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component';
+import {LoginComponent} from './modules/login/login.component';
+import {LocalStorageService} from './shared/services/localStorage.service';
+import {SessionStorageService} from './shared/services/sessionStorage.service';
 
 @NgModule({
     imports: [
@@ -28,11 +31,14 @@ import {SmsValidacaoComponent} from './modules/smsValidacao/smsValidacao.compone
     declarations: [
         AppComponent,
         RegistroComponent,
-        SmsValidacaoComponent
+        SmsValidacaoComponent,
+        ReenvioCodigoComponent,
+        LoginComponent
     ],
     providers: [
         AuthGuard,
         LocalStorageService,
+        SessionStorageService,
         {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
         {provide: LOCALE_ID, useValue: 'pt-BR'},

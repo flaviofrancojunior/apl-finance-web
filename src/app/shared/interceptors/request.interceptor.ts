@@ -1,29 +1,26 @@
 import {Injectable} from '@angular/core';
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {UsuarioModel} from '../models/usuario.model';
-import {DeviceDetectorService} from 'ngx-device-detector';
-import {LocalStorageService} from '../services/storage.service';
-
+import {SessionStorageService} from '../services/sessionStorage.service';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
-    constructor(private deviceService: DeviceDetectorService,
-                private localService: LocalStorageService) {
+    constructor(private sessionService: SessionStorageService) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
 
         let newHeaders;
-       // newHeaders = req.headers.set('bcsid', JSON.stringify(this.deviceService.getDeviceInfo()));
         newHeaders = req.headers.set('Content-Type', 'application/json');
-        const user = this.localService.getData('usuario');
-        // if (user !== undefined) {
-        //     const userParse = <UsuarioModel>JSON.parse(user);
-        //     if (userParse.id !== undefined) {
-        //         newHeaders = req.headers.set('buuid', userParse.nome + ' (' + userParse.id + ')');
-        //     }
-        // }
+        if (this.sessionService.getData('token') !== null) {
+            newHeaders = req.headers.set('Authorization', 'Bearer ' + this.sessionService.getData('token'));
+        }
+        if (this.sessionService.getData('sessaoId') !== null) {
+            newHeaders = req.headers.set('SessionId', this.sessionService.getData('sessaoId'));
+        }
+        if (this.sessionService.getData('deviceId') !== null) {
+            newHeaders = req.headers.set('DeviceId', this.sessionService.getData('deviceId'));
+        }
         return next.handle(req.clone({headers: newHeaders}));
     }
 }

@@ -8,7 +8,8 @@ import {
     SwiperScrollbarInterface,
     SwiperPaginationInterface
 } from 'ngx-swiper-wrapper';
-import {LocalStorageService} from '../../shared/services/storage.service';
+import {LocalStorageService} from '../../shared/services/localStorage.service';
+
 
 @Component({
     selector: 'app-introduction',

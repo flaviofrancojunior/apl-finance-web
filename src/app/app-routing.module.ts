@@ -2,7 +2,9 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from './shared';
 import {RegistroComponent} from './modules/registro/registro.component';
-import {SmsValidacaoComponent} from './modules/smsValidacao/smsValidacao.component';
+import {SmsValidacaoComponent} from './modules/registro/smsValidacao.component';
+import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component';
+import {LoginComponent} from './modules/login/login.component';
 
 
 const routes: Routes = [
@@ -17,9 +19,10 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {path: '', loadChildren: () => import('./base/introduction/introduction.module').then(m => m.IntroductionModule)},
-    {path: 'login', loadChildren: () => import('./acesso/login/login.module').then(m => m.LoginModule)},
+    {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'validacao-registro', component: SmsValidacaoComponent},
+    {path: 'reenvio-codigo', component: ReenvioCodigoComponent},
 
 
     // {path: '', loadChildren: () => import('./base/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},

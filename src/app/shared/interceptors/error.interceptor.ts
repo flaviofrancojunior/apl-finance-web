@@ -14,6 +14,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request)
             .pipe(
                 catchError((err: HttpErrorResponse) => {
+                    console.log('err',err);
                     let erroRetorno: ErroModel = new ErroModel();
                     if (err.error.statusProcessamento !== undefined) {
                         if (err.error.statusProcessamento.code === '400' && err.error.statusProcessamento.message.search('JWT') > -1) {

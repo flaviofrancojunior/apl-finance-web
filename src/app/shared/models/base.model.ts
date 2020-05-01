@@ -1,16 +1,15 @@
 export class BaseModel {
 
 
-  constructor() {
-  }
+    constructor() {
+    }
 
-  statusDescricao: string;
+    sucesso: boolean = false;
+    mensagem: string;
 
-  statusId: number;
-
-  dataCadastro: Date;
-  dataInativo: Date;
-  dataAtualizacao: Date;
+    dataCadastro: Date;
+    dataInativo: Date;
+    dataAtualizacao: Date;
 
 }
 
