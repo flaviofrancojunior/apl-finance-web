@@ -9,6 +9,7 @@ import {
     SwiperPaginationInterface
 } from 'ngx-swiper-wrapper';
 import {LocalStorageService} from '../../shared/services/localStorage.service';
+import {SessionStorageService} from '../../shared/services/sessionStorage.service';
 
 
 @Component({
@@ -30,11 +31,13 @@ export class IntroductionComponent implements OnInit {
     };
 
     constructor(public router: Router,
+                private sessionService: SessionStorageService,
                 private localService: LocalStorageService) {
     }
 
     ngOnInit() {
         (document.querySelector('.loader-screen') as HTMLElement).style.display = 'none';
+
         const usuario = this.localService.getData('usuario');
         if (usuario) {
             this.router.navigateByUrl('/login');

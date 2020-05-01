@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {SessionStorageService} from '../services/sessionStorage.service';
 
 @Injectable()
@@ -10,18 +10,27 @@ export class RequestInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
 
-        let newHeaders;
-        newHeaders = req.headers.set('Content-Type', 'application/json');
+        let headers = null;
+
         if (this.sessionService.getData('token') !== null) {
-            newHeaders = req.headers.set('Authorization', 'Bearer ' + this.sessionService.getData('token'));
+            headers = new HttpHeaders()
+                .set('content-type', 'application/json')
+                .set('Access-Control-Allow-Origin', '*')
+                .set('Authorization', 'Bearer ' + this.sessionService.getData('token'))
+                .set('SessaoId', this.sessionService.getData('sessaoId'))
+                .set('deviceId', this.sessionService.getData('deviceId'));
+        } else {
+            headers = new HttpHeaders()
+                .set('content-type', 'application/json')
+                .set('Access-Control-Allow-Origin', '*');
         }
-        if (this.sessionService.getData('sessaoId') !== null) {
-            newHeaders = req.headers.set('SessionId', this.sessionService.getData('sessaoId'));
-        }
-        if (this.sessionService.getData('deviceId') !== null) {
-            newHeaders = req.headers.set('DeviceId', this.sessionService.getData('deviceId'));
-        }
-        return next.handle(req.clone({headers: newHeaders}));
+
+        const authReq = req.clone({
+            headers: headers
+        });
+
+        return next.handle(authReq);
+
     }
 }
 

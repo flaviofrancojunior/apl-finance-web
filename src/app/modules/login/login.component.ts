@@ -75,4 +75,22 @@ export class LoginComponent extends BaseComponet implements OnInit {
                     this.modal.mostrarErroRequest(error);
                 });
     }
+
+    teste() {
+        const dados = new AutenticacaoModel();
+        dados.email = this.form.controls['email'].value;
+        dados.senha = this.form.controls['senha'].value;
+        dados.dadosDispositivo = JSON.stringify(this.deviceService.getDeviceInfo());
+        dados.SistemaDispositivo = this.deviceService.getDeviceInfo().os;
+        dados.sessaoDeviceId = Guid.create().toString();
+        this.usuarioService.autenticar(dados)
+            .subscribe(() => {
+
+                },
+                error => {
+                    this.modal.mostrarErroRequest(error);
+                });
+
+    }
+
 }

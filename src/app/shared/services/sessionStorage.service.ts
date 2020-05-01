@@ -18,4 +18,8 @@ export class SessionStorageService {
         sessionStorage.setItem(key, JSON.stringify(data));
     }
 
+
+    limpar() {
+        sessionStorage.clear();
+    }
 }
