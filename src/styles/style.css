@@ -1411,7 +1411,8 @@ h5 {
 }
 
 .logo-small {
-    width: 220px;
+    width: 90%;
+    min-height: 104px;
 }
 
 .form-signin {

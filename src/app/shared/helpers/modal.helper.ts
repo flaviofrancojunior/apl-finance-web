@@ -5,6 +5,7 @@ import {ModalErroComponent} from '../components/modais/modalErro/modalErro.compo
 import {ModalAlertComponent} from '../components/modais/modalAlerta/modalAlerta.component';
 import {ModalConfirmacaoComponent} from '../components/modais/modalConfirmacao/modalConfirmacao.component';
 import {ModalFalhaComponent} from '../components/modais/modalFalha/modalFalha.component';
+import {ModalAvisoComponent} from '../components/modais/modalAviso/modalAviso.component';
 
 
 @Injectable({
@@ -42,6 +43,19 @@ export class ModalHelper {
         this.bsModalRef = this.modalService.show(ModalAlertComponent, this.config);
         return new Promise<boolean>((resolve, reject) => this.bsModalRef.content.result.subscribe((result) => resolve(result)));
     }
+
+
+    /**
+     * Exibe modal padrão de alerta
+     */
+    public mostrarAviso(titulo: string, mensagem: string) {
+        this.config.initialState = {'titulo': titulo, 'mensagem': mensagem};
+        this.config.class = 'modal-dialog modal-sm modal-dialog-centered bg-none';
+        this.bsModalRef = this.modalService.show(ModalAvisoComponent, this.config);
+        return new Promise<boolean>((resolve, reject) => this.bsModalRef.content.result.subscribe((result) => resolve(result)));
+    }
+
+
 
 
     /**

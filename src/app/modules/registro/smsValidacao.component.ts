@@ -6,6 +6,8 @@ import {ModalHelper} from '../../shared/helpers/modal.helper';
 import {RegistroModel} from '../../shared/models/registro.model';
 import {BaseComponet} from '../../base/component/base.componet';
 import {Router} from '@angular/router';
+import {AplicacaoModel} from '../../shared/models/aplicacao.model';
+import {SessionStorageService} from '../../shared/services/sessionStorage.service';
 
 
 @Component({
@@ -17,9 +19,11 @@ export class SmsValidacaoComponent extends BaseComponet implements OnInit {
 
     form: FormGroup;
     submitted: boolean;
+    aplicacao: AplicacaoModel;
 
     constructor(router: Router,
                 private formBuilder: FormBuilder,
+                private sessionService: SessionStorageService,
                 private modal: ModalHelper,
                 private registroService: RegistroService) {
         super(router);
@@ -27,6 +31,7 @@ export class SmsValidacaoComponent extends BaseComponet implements OnInit {
 
     ngOnInit() {
         (document.querySelector('.loader-screen') as HTMLElement).style.display = 'none';
+        this.aplicacao = this.sessionService.getData('aplicacao');
         this.form = this.formBuilder.group({
             email: [null, [Validators.required, Validators.email]],
             codigoValidacao: [null, Validators.required]

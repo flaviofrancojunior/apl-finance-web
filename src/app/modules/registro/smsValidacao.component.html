@@ -16,7 +16,7 @@
             <div class="col-12 align-self-center px-3 text-center">
                 <div class="form-signin mt-4">
                     <br>
-                    <img src="assets/images/logo-login.png" alt="logo" class="logo-small">
+                    <img [src]="'data:image/png;base64,'+this.aplicacao.logo2"  alt="logo" class="logo-small mb-4">
                     <div class="form-group">
                         <input type="email" id="email" formControlName="email" class="form-control form-control-lg text-center"
                                placeholder="Seu e-mail" [ngClass]="{ 'is-invalid': submitted && f.email.errors,  'is-valid': submitted && !f.email.errors }">

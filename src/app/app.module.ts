@@ -19,6 +19,7 @@ import {LocalStorageService} from './shared/services/localStorage.service';
 import {SessionStorageService} from './shared/services/sessionStorage.service';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 import {AberturaComponent} from './modules/abertura/abertura.component';
+import {RecuperarSenhaComponent} from './modules/login/recuperarSenha.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
@@ -40,7 +41,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         RegistroComponent,
         SmsValidacaoComponent,
         ReenvioCodigoComponent,
-        LoginComponent
+        LoginComponent,
+        RecuperarSenhaComponent
     ],
     providers: [
         AuthGuard,

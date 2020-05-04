@@ -1,22 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {routerTransition} from '../../router.animations';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CustomValidators} from '../../shared/validators/custom-validators';
-import {RegistroService} from '../../shared/services/registro.service';
-import {ModalHelper} from '../../shared/helpers/modal.helper';
-import {RegistroModel} from '../../shared/models/registro.model';
-import {BaseComponet} from '../../base/component/base.componet';
 import {Router} from '@angular/router';
+import {routerTransition} from '../../router.animations';
+import {BaseComponet} from '../../base/component/base.componet';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ModalHelper} from '../../shared/helpers/modal.helper';
+import {AutenticacaoService} from '../../shared/services/autenticacao.service';
 import {AplicacaoModel} from '../../shared/models/aplicacao.model';
 import {SessionStorageService} from '../../shared/services/sessionStorage.service';
 
 
+
 @Component({
-    selector: 'app-registro',
-    templateUrl: './registro.component.html',
+    selector: 'app-login-recuperar-senha',
+    templateUrl: './recuperarSenha.component.html',
     animations: [routerTransition()]
 })
-export class RegistroComponent extends BaseComponet implements OnInit {
+export class RecuperarSenhaComponent extends BaseComponet implements OnInit {
 
     form: FormGroup;
     submitted: boolean;
@@ -26,7 +25,7 @@ export class RegistroComponent extends BaseComponet implements OnInit {
                 private formBuilder: FormBuilder,
                 private modal: ModalHelper,
                 private sessionService: SessionStorageService,
-                private registroService: RegistroService) {
+                private usuarioService: AutenticacaoService) {
         super(router);
     }
 
@@ -34,25 +33,8 @@ export class RegistroComponent extends BaseComponet implements OnInit {
         (document.querySelector('.loader-screen') as HTMLElement).style.display = 'none';
         this.aplicacao = this.sessionService.getData('aplicacao');
         this.form = this.formBuilder.group({
-            nome: [null, Validators.required],
-            aceite: [false, Validators.requiredTrue],
             email: [null, [Validators.required, Validators.email]],
-            senha: [null, Validators.compose([
-                Validators.required,
-                Validators.minLength(8),
-                CustomValidators.patternValidator(/\d/, {hasNumber: true}),
-                CustomValidators.patternValidator(/[A-Z]/, {hasCapitalCase: true}),
-                CustomValidators.patternValidator(/[a-z]/, {hasSmallCase: true})
-                // CustomValidators.patternValidator(/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
-                //     {
-                //         hasSpecialCharacters: true
-                //     })
-            ])],
-            confirmaSenha: [null, Validators.compose([Validators.required])]
-        }, {
-            validator: CustomValidators.passwordMatchValidator
         });
-
         this.submitted = false;
     }
 
@@ -63,14 +45,20 @@ export class RegistroComponent extends BaseComponet implements OnInit {
 
     submit() {
         this.submitted = true;
+
         if (this.form.invalid) {
             return;
         }
+
         this.form.clearValidators();
-        this.registroService.salvar(<RegistroModel>this.form.value)
+        this.usuarioService.recuperarSenha(this.form.controls['email'].value)
             .subscribe(result => {
                     if (result.sucesso) {
-                        this.irPara('/validacao-registro');
+                        this.modal.mostrarAviso('Recuperação de Senha', result.mensagem)
+                            .then(() => {
+                                this.irPara('/login');
+                            });
+
                     } else {
                         this.modal.mostrarAlerta('ATENÇÃO', result.mensagem);
                     }
@@ -78,6 +66,7 @@ export class RegistroComponent extends BaseComponet implements OnInit {
                 error => {
                     this.modal.mostrarErroRequest(error);
                 });
-
     }
+
+
 }

@@ -21,6 +21,7 @@ import {ModalConfirmacaoComponent} from './components/modais/modalConfirmacao/mo
 import {ModalErroComponent} from './components/modais/modalErro/modalErro.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {ModalFalhaComponent} from './components/modais/modalFalha/modalFalha.component';
+import {ModalAvisoComponent} from './components/modais/modalAviso/modalAviso.component';
 
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -62,7 +63,8 @@ registerLocaleData(localePt);
         ModalAlertComponent,
         ModalConfirmacaoComponent,
         ModalErroComponent,
-        ModalFalhaComponent
+        ModalFalhaComponent,
+        ModalAvisoComponent,
     ],
     exports: [
         NgbTooltipModule,
@@ -79,7 +81,8 @@ registerLocaleData(localePt);
         ModalAlertComponent,
         ModalConfirmacaoComponent,
         ModalErroComponent,
-        ModalFalhaComponent
+        ModalFalhaComponent,
+        ModalAvisoComponent
     ],
     providers: [
         {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig},

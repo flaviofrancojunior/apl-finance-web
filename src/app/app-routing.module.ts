@@ -6,6 +6,7 @@ import {SmsValidacaoComponent} from './modules/registro/smsValidacao.component';
 import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component';
 import {LoginComponent} from './modules/login/login.component';
 import {AberturaComponent} from './modules/abertura/abertura.component';
+import {RecuperarSenhaComponent} from './modules/login/recuperarSenha.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
     {path: 'registro', component: RegistroComponent},
     {path: 'validacao-registro', component: SmsValidacaoComponent},
     {path: 'reenvio-codigo', component: ReenvioCodigoComponent},
-
+    {path: 'recuperar-senha', component: RecuperarSenhaComponent},
+    {path: 'dashboard', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
 
     // {path: '', loadChildren: () => import('./base/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
 
