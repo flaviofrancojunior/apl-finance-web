@@ -3,7 +3,7 @@ import {routerTransition} from '../../router.animations';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RegistroService} from '../../shared/services/registro.service';
 import {ModalHelper} from '../../shared/helpers/modal.helper';
-import {BaseComponet} from '../../base/component/base.componet';
+import {BaseComponet} from '../../shared/components/base.componet';
 import {Router} from '@angular/router';
 import {SessionStorageService} from '../../shared/services/sessionStorage.service';
 import {AplicacaoModel} from '../../shared/models/aplicacao.model';

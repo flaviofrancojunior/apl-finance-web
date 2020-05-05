@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {routerTransition} from '../../router.animations';
-import {BaseComponet} from '../../base/component/base.componet';
+import {BaseComponet} from '../../shared/components/base.componet';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ModalHelper} from '../../shared/helpers/modal.helper';
 import {AutenticacaoService} from '../../shared/services/autenticacao.service';

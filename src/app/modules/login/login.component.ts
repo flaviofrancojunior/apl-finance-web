@@ -1,7 +1,7 @@
 import {Component, isDevMode, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {routerTransition} from '../../router.animations';
-import {BaseComponet} from '../../base/component/base.componet';
+import {BaseComponet} from '../../shared/components/base.componet';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ModalHelper} from '../../shared/helpers/modal.helper';
 import {AutenticacaoModel} from '../../shared/models/autenticacao.model';
@@ -44,11 +44,12 @@ export class LoginComponent extends BaseComponet implements OnInit {
 
 
         if (isDevMode()) {
-            this.form.controls['email'].setValue("flaviofrancojunior@gmail.com");
-            this.form.controls['senha'].setValue("123456Jr");
+            this.form.controls['email'].setValue('flaviofrancojunior@gmail.com');
+            this.form.controls['senha'].setValue('123456Jr');
             this.submit();
+        } else {
+            this.form.controls['email'].setValue(this.localService.getData('usuario_email'));
         }
-
     }
 
 
@@ -73,10 +74,11 @@ export class LoginComponent extends BaseComponet implements OnInit {
         this.autenticacaoService.autenticar(dados)
             .subscribe(result => {
                     if (result.sucesso) {
-                        this.localService.setData('usuario', result);
+                        this.localService.setData('usuario_email', result.email);
                         this.sessionService.setData('token', result.token);
                         this.sessionService.setData('sessaoId', result.sessaoId);
                         this.sessionService.setData('deviceId', dados.sessaoDeviceId);
+                        this.sessionService.setData('usuario', result);
                         this.irPara('/dashboard');
                     } else {
                         this.modal.mostrarAlerta('ATENÇÃO', result.mensagem);

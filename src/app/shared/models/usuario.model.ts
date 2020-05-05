@@ -11,6 +11,7 @@ export class UsuarioModel extends BaseModel {
     email: string;
     proprietario: boolean = false;
     nome: string;
+    foto: string;
     token: string;
     dataCadastro: Date;
     alteracoesSenha: Array<Date>;

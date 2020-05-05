@@ -56,7 +56,7 @@ export class AberturaComponent implements OnInit {
                     if (sessao !== null) {
                         this.router.navigateByUrl('/dashboard');
                     } else {
-                        const usuario = this.localService.getData('usuario');
+                        const usuario = this.localService.getData('usuario_email');
                         if (usuario) {
                             this.router.navigateByUrl('/login');
                         }

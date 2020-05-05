@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {AuthGuard} from './shared';
 import {RegistroComponent} from './modules/registro/registro.component';
 import {SmsValidacaoComponent} from './modules/registro/smsValidacao.component';
 import {ReenvioCodigoComponent} from './modules/registro/reenvioCodigo.component';
 import {LoginComponent} from './modules/login/login.component';
 import {AberturaComponent} from './modules/abertura/abertura.component';
 import {RecuperarSenhaComponent} from './modules/login/recuperarSenha.component';
+import {AuthGuard} from './shared/guard/auth.guard';
 
 
 const routes: Routes = [
@@ -27,8 +27,6 @@ const routes: Routes = [
     {path: 'reenvio-codigo', component: ReenvioCodigoComponent},
     {path: 'recuperar-senha', component: RecuperarSenhaComponent},
     {path: 'dashboard', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
-
-    // {path: '', loadChildren: () => import('./base/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
 
     // {
     //     path: '',

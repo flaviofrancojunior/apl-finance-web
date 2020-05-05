@@ -5,7 +5,7 @@ import {CustomValidators} from '../../shared/validators/custom-validators';
 import {RegistroService} from '../../shared/services/registro.service';
 import {ModalHelper} from '../../shared/helpers/modal.helper';
 import {RegistroModel} from '../../shared/models/registro.model';
-import {BaseComponet} from '../../base/component/base.componet';
+import {BaseComponet} from '../../shared/components/base.componet';
 import {Router} from '@angular/router';
 import {AplicacaoModel} from '../../shared/models/aplicacao.model';
 import {SessionStorageService} from '../../shared/services/sessionStorage.service';

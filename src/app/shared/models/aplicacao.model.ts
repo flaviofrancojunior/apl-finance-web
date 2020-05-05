@@ -1,4 +1,6 @@
-export class AplicacaoModel {
+import {BaseModel} from './base.model';
+
+export class AplicacaoModel extends BaseModel {
     nome: string;
     versao: string;
     logo1: string;

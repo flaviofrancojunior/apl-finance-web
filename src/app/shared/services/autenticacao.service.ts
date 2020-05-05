@@ -7,6 +7,8 @@ import {AutenticacaoModel} from '../models/autenticacao.model';
 import {UsuarioModel} from '../models/usuario.model';
 import {RetornoModel} from '../models/retorno.model';
 import {AplicacaoModel} from '../models/aplicacao.model';
+import {SessionStorageService} from './sessionStorage.service';
+import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -16,8 +18,31 @@ import {AplicacaoModel} from '../models/aplicacao.model';
 export class AutenticacaoService {
 
 
-    constructor(private _httpClient: HttpClient) {
+    constructor(private router: Router,
+                private sessionService: SessionStorageService,
+                private _httpClient: HttpClient) {
 
+    }
+
+
+    /***
+     * Obtem usuário logado
+     */
+    public getUsuarioLogado(): UsuarioModel {
+        return this.sessionService.getData('usuario');
+
+    }
+
+    public logout(): void {
+        this.sessionService.limpar();
+        this.router.navigate(['/login']);
+    }
+
+    /***
+     * Verifica se usuário está autenticado
+     */
+    public validaUsuarioAutenticado(): boolean {
+        return this.sessionService.getData('sessaoId') !== undefined && this.sessionService.getData('sessaoId') !== null;
     }
 
 

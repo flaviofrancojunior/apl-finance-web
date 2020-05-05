@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { routerTransition } from '../../../router.animations';
+import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import {routerTransition} from '../../../router.animations';
 import {
     SwiperComponent,
     SwiperDirective,
@@ -9,6 +9,9 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import 'swiper/dist/css/swiper.min.css';
+import {AplicacaoModel} from '../../../shared/models/aplicacao.model';
+import {SessionStorageService} from '../../../shared/services/sessionStorage.service';
+import {UsuarioModel} from '../../../shared/models/usuario.model';
 
 @Component({
     selector: 'app-dashboard',
@@ -17,6 +20,11 @@ import 'swiper/dist/css/swiper.min.css';
     animations: [routerTransition()]
 })
 export class DashboardComponent implements OnInit {
+
+    aplicacao: AplicacaoModel;
+    usuario: UsuarioModel;
+
+
     public configurations: SwiperConfigInterface = {
         direction: 'horizontal',
         slidesPerView: 'auto',
@@ -68,11 +76,14 @@ export class DashboardComponent implements OnInit {
         }
     };
 
-    constructor() {
+    constructor(private sessionService: SessionStorageService) {
     }
 
-    public randomize(): void {}
+    public randomize(): void {
+    }
 
     ngOnInit() {
+        this.aplicacao = this.sessionService.getData('aplicacao');
+        this.usuario = this.sessionService.getData('usuario');
     }
 }

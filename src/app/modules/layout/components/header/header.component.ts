@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import {AplicacaoModel} from '../../../../shared/models/aplicacao.model';
+import {SessionStorageService} from '../../../../shared/services/sessionStorage.service';
 
 
 @Component({
@@ -11,11 +13,15 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class HeaderComponent implements OnInit {
 
-    constructor(private translate: TranslateService, public router: Router) {
+    aplicacao: AplicacaoModel;
+
+    constructor(private sessionService: SessionStorageService,
+                private translate: TranslateService, public router: Router) {
         this.router.events.subscribe(val => {});
     }
 
     ngOnInit() {
+        this.aplicacao = this.sessionService.getData('aplicacao');
     }
 
     toggleSidebar() {

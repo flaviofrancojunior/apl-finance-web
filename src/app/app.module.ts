@@ -7,7 +7,6 @@ import {LanguageTranslationModule} from './shared/modules/language-translation/l
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AuthGuard} from './shared';
 import {SharedModule} from './shared/shared.module';
 import {RequestInterceptor} from './shared/interceptors/request.interceptor';
 import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
@@ -45,7 +44,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         RecuperarSenhaComponent
     ],
     providers: [
-        AuthGuard,
+
         LocalStorageService,
         SessionStorageService,
         {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG},
