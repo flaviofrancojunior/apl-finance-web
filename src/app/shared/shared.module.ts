@@ -1,5 +1,12 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {NgbAlertModule, NgbDatepickerModule, NgbModule, NgbPaginationModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {
+    NgbAlertModule, NgbCarouselModule,
+    NgbDatepickerModule,
+    NgbDropdownModule, NgbModalModule,
+    NgbModule,
+    NgbPaginationModule, NgbProgressbarModule, NgbTabsetModule,
+    NgbTooltipModule
+} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {AngularValidateBrLibModule} from 'angular-validate-br';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -19,10 +26,18 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ModalAlertComponent} from './components/modais/modalAlerta/modalAlerta.component';
 import {ModalConfirmacaoComponent} from './components/modais/modalConfirmacao/modalConfirmacao.component';
 import {ModalErroComponent} from './components/modais/modalErro/modalErro.component';
-import {BrowserModule} from '@angular/platform-browser';
 import {ModalFalhaComponent} from './components/modais/modalFalha/modalFalha.component';
 import {ModalAvisoComponent} from './components/modais/modalAviso/modalAviso.component';
+import {GaugeChartModule} from 'angular-gauge-chart';
+import {SwiperModule} from 'ngx-swiper-wrapper';
+import {LanguageTranslationModule} from './modules/language-translation/language-translation.module';
+import {HttpClientModule} from '@angular/common/http';
+import {StatModule} from './modules';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
 
+const maskConfig: Partial<IConfig> = {
+    validation: false,
+};
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: 'right',
@@ -37,14 +52,15 @@ registerLocaleData(localePt);
 
 @NgModule({
     imports: [
-        NgbModule,
-        CommonModule,
-        TranslateModule,
-        BrowserModule,
         TabsModule.forRoot(),
         AlertModule.forRoot(),
         ModalModule.forRoot(),
         BsDropdownModule.forRoot(),
+        DeviceDetectorModule.forRoot(),
+        NgxMaskModule.forRoot(maskConfig),
+        NgbModule,
+        CommonModule,
+        TranslateModule,
         NgbAlertModule,
         NgbPaginationModule,
         NgbTooltipModule,
@@ -57,7 +73,22 @@ registerLocaleData(localePt);
         LoadingBarHttpClientModule,
         LoadingBarRouterModule,
         LoadingBarModule,
-        DeviceDetectorModule.forRoot()
+        TranslateModule,
+        NgbDropdownModule,
+        NgbTabsetModule,
+        NgbModalModule,
+        NgbDatepickerModule,
+        GaugeChartModule,
+        FormsModule,
+        ReactiveFormsModule,
+        LanguageTranslationModule,
+        HttpClientModule,
+        SwiperModule,
+        NgbCarouselModule,
+        StatModule,
+        NgbProgressbarModule,
+
+
     ],
     declarations: [
         ModalAlertComponent,
@@ -67,15 +98,35 @@ registerLocaleData(localePt);
         ModalAvisoComponent,
     ],
     exports: [
+        NgbModule,
+        CommonModule,
+        TranslateModule,
+        NgbAlertModule,
+        NgbPaginationModule,
         NgbTooltipModule,
         AngularValidateBrLibModule,
-        BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         SelectDropDownModule,
         LoadingBarHttpClientModule,
         NgbDatepickerModule,
-
+        LoadingBarHttpClientModule,
+        LoadingBarRouterModule,
+        LoadingBarModule,
+        TranslateModule,
+        NgbDropdownModule,
+        NgbTabsetModule,
+        NgbModalModule,
+        NgbDatepickerModule,
+        GaugeChartModule,
+        FormsModule,
+        ReactiveFormsModule,
+        LanguageTranslationModule,
+        HttpClientModule,
+        SwiperModule,
+        NgbCarouselModule,
+        StatModule,
+        NgbProgressbarModule,
     ],
     entryComponents: [
         ModalAlertComponent,

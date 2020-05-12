@@ -7,39 +7,35 @@ import {LoginComponent} from './modules/login/login.component';
 import {AberturaComponent} from './modules/abertura/abertura.component';
 import {RecuperarSenhaComponent} from './modules/login/recuperarSenha.component';
 import {AuthGuard} from './shared/guard/auth.guard';
+import {LayoutComponent} from './modules/layout/layout.component';
+import {DashboardComponent} from './modules/dashboard/dashboard.component';
 
 
 const routes: Routes = [
+    {path: '', component: AberturaComponent},
     {
         path: '',
-        redirectTo: '/',
-        pathMatch: 'full',
+        component: LayoutComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {path: '', redirectTo: 'dashboard', pathMatch: 'prefix'},
+            {path: 'dashboard', component: DashboardComponent},
+            {
+                path: 'perfil',
+                loadChildren: () => import('./modules/perfil/perfil.module').then(m => m.PerfilModule)
+            },
+        ]
     },
-    {
-        path: '*',
-        redirectTo: '/',
-        pathMatch: 'full',
-    },
-    {path: '', component: AberturaComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'validacao-registro', component: SmsValidacaoComponent},
     {path: 'reenvio-codigo', component: ReenvioCodigoComponent},
     {path: 'recuperar-senha', component: RecuperarSenhaComponent},
-    {path: 'dashboard', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
-
-    // {
-    //     path: '',
-    //     component: DefaultLayoutComponent,
-    //     canActivate: [AuthGuard],
-    //     children: [
-    //         {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-    //         {path: '*', redirectTo: 'dashboard', pathMatch: 'full'},
-    //         {path: '**', redirectTo: 'dashboard', pathMatch: 'full'},
-    //     ]
-    // },
-
-
+    {
+        path: '*',
+        redirectTo: '/',
+        pathMatch: 'full',
+    },
     {
         path: '**',
         redirectTo: '/',

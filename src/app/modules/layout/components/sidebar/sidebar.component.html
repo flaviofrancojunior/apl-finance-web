@@ -1,21 +1,24 @@
 <div class="my-5">
     <div class="row">
-        <div class="col-auto">
-            <figure class="avatar avatar-60 border-0"><img [src]="'data:image/png;base64,'+this.usuario.foto" alt=""></figure>
-        </div>
-        <div class="col pl-0 align-self-center">
-            <h5 class="mb-1">{{this.usuario.nome}}</h5>
-            <p class="text-mute small">{{this.usuario.email}}</p>
-        </div>
+        <a routerLink="/perfil" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()">
+            <div class="col-auto">
+                <figure class="avatar avatar-60 border-0"><img [src]="'data:image/png;base64,'+this.usuario.foto" alt=""></figure>
+            </div>
+            <div class="col pl-0 align-self-center">
+                <h5 class="mb-1">{{this.usuario.nome}}</h5>
+                <p class="text-mute small">{{this.usuario.email}}</p>
+            </div>
+        </a>
     </div>
 </div>
 <div class="row">
     <div class="col">
         <div class="list-group main-menu">
             <a routerLink="/dashboard" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">home</i>Dashboard</a>
-            <a routerLink="/notification" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a>
-            <a routerLink="/history" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">find_in_page</i>History</a>
-            <a routerLink="/setting" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">important_devices</i>Settings</a>
+            <a routerLink="/gereciamento" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">settings_applications</i>Gerenciar</a>
+            <a routerLink="/relatorios" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">insert_chart</i>Relatórios</a>
+            <a routerLink="/perfil/menu" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">face</i>Perfil</a>
+            <a routerLink="/sobre" [routerLinkActive]="['active']" class="list-group-item list-group-item-action" (click)="toggleSidebar()"><i class="material-icons icons-raised">feedback</i>Sobre</a>
             <a class="list-group-item list-group-item-action" (click)="this.logout()"><i class="material-icons icons-raised bg-danger">power_settings_new</i>Sair</a>
         </div>
     </div>

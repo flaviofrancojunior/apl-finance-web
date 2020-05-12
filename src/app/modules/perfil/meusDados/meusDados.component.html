@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="text-center">
+        <div class="figure-profile shadow my-4">
+            <figure><img src="img/user1.png" alt=""></figure>
+            <div class="btn btn-dark text-white floating-btn">
+                <i class="material-icons">camera_alt</i>
+                <input type="file" class="float-file">
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="this.form" (submit)="this.submit()">
+        <h6 class="subtitle">Meus Dados</h6>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" autofocus id="nome" formControlName="nome"
+                           [ngClass]="{ 'is-invalid': submitted && f.nome.errors,'is-valid': submitted && !f.nome.errors }">
+                    <label class="form-control-label">Nome Completo</label>
+                    <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                        <div *ngIf="f.nome.errors.required">Necessário informar o seu nome!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" id="email" formControlName="email"
+                           [ngClass]="{ 'is-invalid': submitted && f.email.errors,'is-valid': submitted && !f.email.errors }">
+                    <label class="form-control-label">E-mail</label>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Necessário informar o seu e-mail!</div>
+                        <div *ngIf="f.email.errors.email">E-mail informado não é válido!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" id="celular" formControlName="celular" mask="(00) 00000-0000"
+                           [ngClass]="{ 'is-invalid': submitted && f.celular.errors,'is-valid': submitted && !f.celular.errors }">
+                    <label class="form-control-label">Telefone Celular</label>
+                    <div *ngIf="submitted && f.celular.errors" class="invalid-feedback">
+                        <div *ngIf="f.celular.errors.required">Necessário informar o telefone celular!</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h6 class="subtitle">Address</h6>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" required="" value="58, Lajpat Nagar">
+                    <label class="form-control-label">Address line 1</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" value="Holand Street four">
+                    <label class="form-control-label">Address line 2</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group float-label active">
+                    <input type="tel" class="form-control" required="" value="Sydney">
+                    <label class="form-control-label">City</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group float-label active">
+                    <input type="tel" class="form-control" required="" value="25468">
+                    <label class="form-control-label">Pin Code</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <select class="form-control">
+                        <option>Australia</option>
+                        <option>America</option>
+                        <option>Africa</option>
+                        <option>France</option>
+                    </select>
+                    <label class="form-control-label">Country</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <a href="profile-edit.html" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span>Submit</span></a>
+    <br>
+</div>

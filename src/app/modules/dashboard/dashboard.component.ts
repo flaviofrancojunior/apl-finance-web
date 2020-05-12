@@ -1,5 +1,5 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
-import {routerTransition} from '../../../router.animations';
+import {routerTransition} from '../../router.animations';
 import {
     SwiperComponent,
     SwiperDirective,
@@ -9,9 +9,9 @@ import {
 } from 'ngx-swiper-wrapper';
 
 import 'swiper/dist/css/swiper.min.css';
-import {AplicacaoModel} from '../../../shared/models/aplicacao.model';
-import {SessionStorageService} from '../../../shared/services/sessionStorage.service';
-import {UsuarioModel} from '../../../shared/models/usuario.model';
+import {AplicacaoModel} from '../../shared/models/aplicacao.model';
+import {SessionStorageService} from '../../shared/services/sessionStorage.service';
+import {UsuarioModel} from '../../shared/models/usuario.model';
 
 @Component({
     selector: 'app-dashboard',
