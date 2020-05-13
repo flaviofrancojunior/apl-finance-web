@@ -21,7 +21,7 @@ export class RegistroService {
 
     /**
      * Salva dadops de registro de usuário
-     * @param registro
+
      */
     public salvar(registro: RegistroModel): Observable<RetornoModel> {
         return this._httpClient.post<RetornoModel>(environment.backendUrl + 'registro/registrar', registro)
@@ -32,7 +32,7 @@ export class RegistroService {
 
     /**
      * Executa ativação de registro do usuário
-     * @param registro
+
      */
     public ativar(registro: RegistroModel): Observable<RetornoModel> {
         return this._httpClient.post<RetornoModel>(environment.backendUrl + 'registro/ativar', registro)
@@ -44,7 +44,6 @@ export class RegistroService {
 
     /**
      * Executa reenvio do código de validação de um registro
-     * @param email
      */
     public reenvioCodigo(email: string): Observable<RetornoModel> {
         return this._httpClient.get<RetornoModel>(environment.backendUrl + 'registro/codigo/reenvio/' + email)

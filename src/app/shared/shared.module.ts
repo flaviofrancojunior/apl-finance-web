@@ -127,6 +127,7 @@ registerLocaleData(localePt);
         NgbCarouselModule,
         StatModule,
         NgbProgressbarModule,
+        NgxMaskModule,
     ],
     entryComponents: [
         ModalAlertComponent,

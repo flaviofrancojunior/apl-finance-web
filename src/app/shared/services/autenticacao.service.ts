@@ -48,7 +48,6 @@ export class AutenticacaoService {
 
     /**
      * Executa autenticação de um usuário.
-     * @param dados
      */
     public obterAplicacao(): Observable<AplicacaoModel> {
         return this._httpClient.get<AplicacaoModel>(environment.backendUrl + 'autenticacao/aplicacao')
@@ -59,7 +58,7 @@ export class AutenticacaoService {
 
     /**
      * Executa autenticação de um usuário.
-     * @param dados
+
      */
     public autenticar(dados: AutenticacaoModel): Observable<UsuarioModel> {
         return this._httpClient.post<UsuarioModel>(environment.backendUrl + 'autenticacao/autenticar', dados)
@@ -70,7 +69,7 @@ export class AutenticacaoService {
 
     /**
      * Executa recuperação de senha para emial informado
-     * @param dados
+
      */
     public recuperarSenha(email: string): Observable<RetornoModel> {
         return this._httpClient.post<RetornoModel>(environment.backendUrl + 'autenticacao/senha/recuperar', {'email': email})

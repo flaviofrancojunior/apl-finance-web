@@ -9,7 +9,8 @@
         </div>
     </div>
     <form [formGroup]="this.form" (submit)="this.submit()">
-        <h6 class="subtitle">Meus Dados</h6>
+        <h6 class="subtitle">Meu Cadastro</h6>
+
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="form-group float-label active">
@@ -21,6 +22,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 col-md-6">
                 <div class="form-group float-label active">
                     <input type="text" class="form-control" id="email" formControlName="email"
@@ -32,8 +34,45 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000.000-00"
+                           [ngClass]="{ 'is-invalid': submitted && f.cpf.errors,'is-valid': submitted && !f.cpf.errors }">
+                    <label class="form-control-label">CPF</label>
+                    <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
+                        <div *ngIf="f.cpf.errors.required">Necessário informar o seu CPF!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="date" class="form-control" id="dataNascimento" formControlName="dataNascimento"
+                           [ngClass]="{ 'is-invalid': submitted && f.dataNascimento.errors,'is-valid': submitted && !f.dataNascimento.errors }">
+                    <label class="form-control-label">Data de Nascimento</label>
+                    <div *ngIf="submitted && f.dataNascimento.errors" class="invalid-feedback">
+                        <div *ngIf="f.dataNascimento.errors.required">Necessário informar o data de nascimento!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <select class="form-control" id="sexo" formControlName="sexo"
+                            [ngClass]="{ 'is-invalid': submitted && f.sexo.errors,'is-valid': submitted && !f.sexo.errors }">
+                        <option label=""></option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outros</option>
+                    </select>
+                    <label class="form-control-label">Gênero</label>
+                    <div *ngIf="submitted && f.sexo.errors" class="invalid-feedback">
+                        <div *ngIf="f.celular.errors.required">Necessário informar o sexo!</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-md-6">
                 <div class="form-group float-label active">
                     <input type="text" class="form-control" id="celular" formControlName="celular" mask="(00) 00000-0000"
@@ -43,53 +82,45 @@
                         <div *ngIf="f.celular.errors.required">Necessário informar o telefone celular!</div>
                     </div>
                 </div>
+            </div>
 
-            </div>
-        </div>
-
-        <h6 class="subtitle">Address</h6>
-        <div class="row">
             <div class="col-12 col-md-6">
                 <div class="form-group float-label active">
-                    <input type="text" class="form-control" required="" value="58, Lajpat Nagar">
-                    <label class="form-control-label">Address line 1</label>
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="form-group float-label active">
-                    <input type="text" class="form-control" value="Holand Street four">
-                    <label class="form-control-label">Address line 2</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="form-group float-label active">
-                    <input type="tel" class="form-control" required="" value="Sydney">
-                    <label class="form-control-label">City</label>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group float-label active">
-                    <input type="tel" class="form-control" required="" value="25468">
-                    <label class="form-control-label">Pin Code</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="form-group float-label active">
-                    <select class="form-control">
-                        <option>Australia</option>
-                        <option>America</option>
-                        <option>Africa</option>
-                        <option>France</option>
+                    <select class="form-control" id="estado" formControlName="estado" #mySelect (change)="this.obterListaCidades(mySelect.value)"
+                            [ngClass]="{ 'is-invalid': submitted && f.estado.errors,'is-valid': submitted && !f.estado.errors }">
+                        <option *ngFor="let item of this.estados" [ngValue]="item.sigla">{{item.nome}}</option>
                     </select>
-                    <label class="form-control-label">Country</label>
+                    <label class="form-control-label">Estado onde Mora</label>
+                    <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                        <div *ngIf="f.estado.errors.required">Necessário informar o estado!</div>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" id="cidade" formControlName="cidade"
+                           [ngbTypeahead]="this.search"
+                           [ngClass]="{ 'is-invalid': submitted && f.cidade.errors,'is-valid': submitted && !f.cidade.errors }">
+                    <label class="form-control-label">Cidade onde Mora</label>
+                    <div *ngIf="submitted && f.cidade.errors" class="invalid-feedback">
+                        <div *ngIf="f.cidade.errors.required">Necessário informar o cidade!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="form-group float-label active">
+                    <input type="text" class="form-control" id="profissao" formControlName="profissao"
+                           [ngClass]="{ 'is-invalid': submitted && f.profissao.errors,'is-valid': submitted && !f.profissao.errors }">
+                    <label class="form-control-label">Profissão</label>
+                </div>
+            </div>
+
         </div>
+
+        <button type="submit" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow">Salvar</button>
     </form>
-    <a href="profile-edit.html" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span>Submit</span></a>
+
     <br>
 </div>

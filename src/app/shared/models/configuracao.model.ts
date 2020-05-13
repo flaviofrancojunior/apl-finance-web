@@ -1,5 +1,6 @@
 export class ConfiguracaoModel {
     production: boolean;
-    backendUrl: any;
+    backendUrl: string;
+    localidadeApiUrl: string;
     requestTimout: any;
 }

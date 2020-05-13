@@ -20,7 +20,7 @@ export class BaseComponet {
 
     /**
      * Inicializa rota informada
-     * @param rota
+
      */
     protected irPara(rota: string) {
         this.router.navigate([rota]);
@@ -28,7 +28,6 @@ export class BaseComponet {
 
     /**
      * Inicializa rota informada com parametro
-     * @param rota
      */
     protected irParaComParametro(rota: string, parametro: object) {
         this.router.navigate([rota], {queryParams: {parametro: JSON.stringify(parametro)}});
@@ -36,8 +35,6 @@ export class BaseComponet {
 
     /***
      * Exporta objeto para CSV
-     * @param data
-     * @param fileName
      */
     public exportarCSV(data: any, fileName: string): void {
         const separator = ',';

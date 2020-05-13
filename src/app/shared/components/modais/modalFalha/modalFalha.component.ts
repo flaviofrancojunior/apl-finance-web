@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
     selector: 'app-box-modal-falha',
@@ -9,6 +10,9 @@ export class ModalFalhaComponent {
 
     titulo: string;
     mensagem: string;
+
+    constructor(public bsModalRef: BsModalRef) {
+    }
 
 }
 

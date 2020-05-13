@@ -12,6 +12,8 @@ import 'swiper/dist/css/swiper.min.css';
 import {AplicacaoModel} from '../../shared/models/aplicacao.model';
 import {SessionStorageService} from '../../shared/services/sessionStorage.service';
 import {UsuarioModel} from '../../shared/models/usuario.model';
+import {BaseComponet} from '../../shared/components/base.componet';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-dashboard',
@@ -19,7 +21,7 @@ import {UsuarioModel} from '../../shared/models/usuario.model';
     styleUrls: ['./dashboard.component.scss'],
     animations: [routerTransition()]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent extends BaseComponet implements OnInit {
 
     aplicacao: AplicacaoModel;
     usuario: UsuarioModel;
@@ -76,7 +78,9 @@ export class DashboardComponent implements OnInit {
         }
     };
 
-    constructor(private sessionService: SessionStorageService) {
+    constructor(router: Router,
+                private sessionService: SessionStorageService) {
+        super(router);
     }
 
     public randomize(): void {
@@ -85,5 +89,6 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.aplicacao = this.sessionService.getData('aplicacao');
         this.usuario = this.sessionService.getData('usuario');
+        this.irPara('/perfil/meus-dados');
     }
 }

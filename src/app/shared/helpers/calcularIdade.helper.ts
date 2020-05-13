@@ -11,7 +11,6 @@ export class CalcularIdadeHelper {
 
   /**
    * Calcula iddade com base na data informada
-   * @param data
    */
   calcular(data: Date): number {
     const birthday: any = new Date(data);
