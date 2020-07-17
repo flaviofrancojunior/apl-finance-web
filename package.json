@@ -36,7 +36,7 @@
     "chart.js": "2.7.3",
     "core-js": "2.5.7",
     "guid-typescript": "^1.0.9",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "ng-circle-progress": "^1.5.1",
     "ng2-charts": "^2.3.0",
     "ng2-currency-mask": "^9.0.2",
