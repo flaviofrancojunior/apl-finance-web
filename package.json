@@ -33,7 +33,7 @@
     "@ngx-translate/http-loader": "4.0.0",
     "angular-gauge-chart": "^0.7.2",
     "angular-validate-br": "0.1.0-beta",
-    "chart.js": "2.7.3",
+    "chart.js": "2.9.4",
     "core-js": "2.5.7",
     "guid-typescript": "^1.0.9",
     "lodash": "^4.17.15",
